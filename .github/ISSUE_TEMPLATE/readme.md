@@ -1,7 +1,7 @@
 ---
-name: 'README: Update  module '
+name: README
 about: Update README
-title: README
+title: 'README: Update  module '
 labels: 'documentation, EPIC #1'
 assignees: TulaUnogi
 
