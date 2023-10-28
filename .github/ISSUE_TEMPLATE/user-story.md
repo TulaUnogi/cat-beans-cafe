@@ -2,7 +2,7 @@
 name: USER STORY
 about: Default template for User Stories
 title: USER STORIES
-labels: 'documentation, EPIC #2'
+labels: 'documentation, EPIC #1'
 assignees: TulaUnogi
 
 ---
