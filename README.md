@@ -46,6 +46,15 @@
 
 #### Design
 
+> Initial design planning
+
+Early design stage of this project included making png versions of a homepage and login page prototypes.
+Thanks to that I could decide on the aesthetic choices before entering the coding stage.
+
+<img src="static/images/planning-home.png" alt="Homepage prototype" width="520">
+<img src="static/images/planning-log-in.png" alt="Homepage prototype" width="520">
+
+
 #### Site User
 
 #### Goals for the website
