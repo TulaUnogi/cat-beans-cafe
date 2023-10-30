@@ -35,7 +35,37 @@
 
 #### Data structure
 
+<img src="static/images/readme-images/lucid-diagram.png" alt="Lucid diagram" width="600">
+
+- After deciding on the kind of the project and features I wanted to implement I used a lucidchart to plan the database structure.
+- The above diagram is serving as an initial guide to indicate the types and relationships between data stored.
+
 #### Data models
+
+> Customer model
+
+| Key | Name | Field |
+|--|--|--|
+| PrimaryKey | user_id | OnetoOneField  |
+| x | first_name | Charfield |
+| x | last_name | Charfield |
+| x | email | EmailField |
+| x |contact_phone | Charfield |
+| ForeignKey | user_bookings | ManytoOneField |
+
+---
+
+> Bookings model
+
+| Key | Name | Field |
+|--|--|--|
+| ForeignKey | booking_id | ManytoOneField  |
+| x | booking_date | DateField |
+| x | booking_time | TimeField |
+| ForeignKey | tables_booked | ManytoOneField |
+| x | additional_info  | Textarea |
+| x | is_confirmed | Boolean |
+| ForeignKey | customer | ManytoOneField |
 
 ---
 
