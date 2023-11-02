@@ -84,13 +84,48 @@ Thanks to that I could decide on the aesthetic choices before entering the codin
 <img src="static/images/readme-images/planning-home.png" alt="Homepage prototype" width="520">
 <img src="static/images/readme-images/planning-log-in.png" alt="Login page prototype" width="520">
 
+I wanted the website to look modern, professional and welcoming. I chose the base colours to be in the shades of brown, black and white, as they may be associated with coffee.
 
 #### Site User
 
+- Someone over 16 years old from the café's area
+- A cat loving person looking for the place to relax
+- Someone who prefers to arrange their bookings digitally rather than over the phone or in person
+
 #### Goals for the website
 
+- To allow customers to see the menu before visiting the café
+- To allow customers to plan their booking in advance
+- To safely store the bookings data and make it available for designated staff to approve or decline it in an easy way
 
 ### Wireframes
+
+The next stage of UX design planning was creating the basic wireframes using [Figma](https://www.figma.com/).
+My intention was to create visually pleasing and easy to navigate website. Below I did not include the base homepage and login page, as I used the initial planning examples from above instead.
+
+> Large to medium screens
+
+![About Us page](static/images/readme-images/wireframe-about.png)
+
+![Our Cats page](static/images/readme-images/wireframe-cats.png)
+
+![Contact Us page](static/images/readme-images/wireframe-contact.png)
+
+![Menu page](static/images/readme-images/wireframe-menu.png)
+
+> Small screens
+
+![Home page](static/images/readme-images/wireframe-home-phone.png)
+
+![Login page](static/images/readme-images/wireframe-login-phone.png)
+
+![About Us page](static/images/readme-images/wireframe-about-phone.png)
+
+![Our Cats page](static/images/readme-images/wireframe-cats-phone.png)
+
+![Contact Us page](static/images/readme-images/wireframe-contact-sm.png)
+
+
 
 ##### [ Back to Top ](#table-of-contents)
 
