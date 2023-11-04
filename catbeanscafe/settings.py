@@ -27,7 +27,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '8000-tulaunogi-catbeanscafe-yyb8mlf1l4c.ws-eu105.gitpod.io'
+    '8000-tulaunogi-catbeanscafe-yyb8mlf1l4c.ws-eu105.gitpod.io',
+    'cat-beans-cafe-08a84ae29847.herokuapp.com',
     ]
 
 
