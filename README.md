@@ -256,7 +256,23 @@ web: guincorn PROJECT_NAME.wsgi
 
 #### Forking the repository
 
+By forking the GitHub Repository you can make a copy of the original repository to view or change without it effecting the original repository. You can do this with following steps:
 
+- Log in to GitHub or create an account
+- Enter this [repository link](https://github.com/TulaUnogi/cat-beans-cafe)
+- Select "Fork" from the top of the repository
+- A copy of the repository should now be created in your own repository
+
+#### Create a clone of this repository
+
+Creating a clone enables you to make a copy of the current version of this repository to run the project locally. To do this follow steps below:
+
+- Navigate to https://github.com/TulaUnogi/cat-beans-cafe
+- Click on the <>Code button at the top of the list of files
+- Select the "HTTPS" option on the "Local" tab and copy the URL it provides to the clipboard
+- Navigate to your code editor and in the terminal change the directory to your chosen location 
+- Type "git clone" and paste the GitHub repository's link
+- Press enter and git will clone the repository for you
 
 ##### [ Back to Top ](#table-of-contents)
 
