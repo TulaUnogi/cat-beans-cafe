@@ -1,4 +1,4 @@
-<img src="static/images/cat-beans-cafe-logo.png" width="200" height="200" alt="Cat Beans Café logo">
+<img src="static/images/website-images/cat-beans-cafe-logo.png" width="200" height="200" alt="Cat Beans Café logo">
 
 
 
