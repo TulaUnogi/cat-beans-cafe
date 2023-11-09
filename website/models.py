@@ -43,16 +43,20 @@ class Customer(models.Model):
 
 # Booking model for reservations
 class Bookings(models.Model):
+
     booking_id = models.ForeignKey(Customer, null=True, on_delete=models.CASCADE)
     booking_date = models.DateField()
     booking_time = models.CharField(choices=TIME_SLOTS, default='8:00', blank=False)
     tables_booked = models.IntegerField(choices=TABLE_SIZE, default=0)
     additional_info = models.TextField(max_length=400, null=True, blank=True)
+    booked_on = models.DateTimeField(auto_now_add=True)
     is_confirmed = models.IntegerField(choices=CONFIRMATION, default=0)          
 
 
+    class Meta:
+        ordering = ["-order_date"]
+
+
     def __str__(self):
-        if self.booking_id:
-            return f'Booking for {self.booking_id} currently has a status: {self.is_confirmed}'
-        else:
-            return 'Booking - User not specified'
+        return f'Booking for {self.booking_date} at {self.booking_time} currently has a status: {self.is_confirmed}'
+
