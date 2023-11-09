@@ -44,6 +44,8 @@
 
 > Customer model
 
+- The revised data models developed as the project evolved into it's current state:
+
 | Key | Name | Field |
 |--|--|--|
 | PrimaryKey | user_id | OnetoOneField  |
@@ -51,7 +53,6 @@
 | x | last_name | Charfield |
 | x | email | EmailField |
 | x |contact_phone | Charfield |
-| ForeignKey | user_bookings | ManytoOneField |
 
 ---
 
@@ -59,13 +60,12 @@
 
 | Key | Name | Field |
 |--|--|--|
-| ForeignKey | booking_id | ManytoOneField  |
+| ForeignKey | booking_customer | ManytoOneField  |
 | x | booking_date | DateField |
 | x | booking_time | TimeField |
-| ForeignKey | tables_booked | ManytoOneField |
-| x | additional_info  | Textarea |
-| x | is_confirmed | Boolean |
-| ForeignKey | customer | ManytoOneField |
+| ForeignKey | tables_booked | IntegerField |
+| x | additional_info  | TextField |
+| x | is_confirmed | IntegerField |
 
 ---
 

@@ -31,7 +31,6 @@ class Customer(models.Model):
     last_name = models.CharField(max_length=150, null=True, blank=True)
     email = models.EmailField(max_length=300, null=True, blank=True)
     contact_phone = models.CharField(max_length=17, null=True, blank=True)
-    user_bookings = models.ForeignKey(Bookings, null=True, on_delete=models.CASCADE)
 
 
     def __str__(self):
@@ -44,9 +43,9 @@ class Customer(models.Model):
 # Booking model for reservations
 class Bookings(models.Model):
 
-    booking_id = models.ForeignKey(Customer, null=True, on_delete=models.CASCADE)
+    booking_customer = models.ForeignKey(Customer, null=True, on_delete=models.CASCADE)
     booking_date = models.DateField()
-    booking_time = models.CharField(choices=TIME_SLOTS, default='8:00', blank=False)
+    booking_time = models.CharField(choices=TIME_SLOTS, default='8:00', blank=False, max_length=5)
     tables_booked = models.IntegerField(choices=TABLE_SIZE, default=0)
     additional_info = models.TextField(max_length=400, null=True, blank=True)
     booked_on = models.DateTimeField(auto_now_add=True)
@@ -54,9 +53,8 @@ class Bookings(models.Model):
 
 
     class Meta:
-        ordering = ["-order_date"]
+        ordering = ["booked_on"]
 
 
     def __str__(self):
         return f'Booking for {self.booking_date} at {self.booking_time} currently has a status: {self.is_confirmed}'
-
