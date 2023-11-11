@@ -41,7 +41,7 @@ class Customer(models.Model):
 
 
 # Booking model for reservations
-class Bookings(models.Model):
+class Booking(models.Model):
 
     booking_customer = models.ForeignKey(Customer, null=True, on_delete=models.CASCADE)
     booking_date = models.DateField()
@@ -54,7 +54,7 @@ class Bookings(models.Model):
 
     class Meta:
         ordering = ["booked_on"]
-
+        
 
     def __str__(self):
         return f'Booking for {self.booking_date} at {self.booking_time} currently has a status: {self.is_confirmed}'
