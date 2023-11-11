@@ -286,4 +286,9 @@ Creating a clone enables you to make a copy of the current version of this repos
 
 # Credits and acknowledgements
 
+> Code
+
+- <b>Roger Pfäffli</b>, Code Institute Alumnus for explaining on Slack how to set up development and DEBUG variables in env.py
+
+
 ##### [ Back to Top ](#table-of-contents)
