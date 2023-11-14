@@ -1,3 +1,65 @@
+/* Body & backgrounds */
+
+.background-lg {
+    background: url('static/images/website-images/cafe-main.png');
+}
+
 body {
-    background-color: aquamarine;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.bg-trans-black {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+a {
+    text-decoration: none;
+}
+
+/* Buttons */
+
+.btn-brown {
+    background-color: rgba(70, 28, 3, 0.797);
+    margin: auto;
+    color: whitesmoke;    
+    text-transform: uppercase;
+}
+
+.btn-brown:hover {
+    background-color: rgba(90, 48, 4, 0.797);
+    color: antiquewhite;
+}
+
+.btn-brown:focus {
+    color: antiquewhite;
+    background-color: rgba(90, 48, 4, 0.797);
+}
+
+.btn-brown:active {
+    color: antiquewhite;
+    background-color: rgba(90, 48, 4, 0.797);
+}
+
+/* Index page */
+
+.index-section {
+    padding: 3rem;
+    height: 90vh;
+}
+
+.logo-index {
+    margin-bottom: -50%;
+}
+
+/* Footer */
+
+.txt-footer {
+    color: antiquewhite;
 }
