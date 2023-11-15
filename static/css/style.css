@@ -1,13 +1,23 @@
+/* Font styles */
+
+.font-white {
+    color: whitesmoke;
+}
+
 /* Body & backgrounds */
 
 .background-lg {
-    background: url('static/images/website-images/cafe-main.png');
+    background: url('/static/images/website-images/cafe-main.png');
+    background-size: cover;
+    background-position: 30%;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
 }
 
 body {
     width: 100%;
     height: 100%;
-    background-size: cover;
+    scroll-behavior: smooth;
 }
 
 .bg-black {
@@ -30,6 +40,7 @@ a {
     margin: auto;
     color: whitesmoke;    
     text-transform: uppercase;
+    border: none;
 }
 
 .btn-brown:hover {
@@ -47,19 +58,92 @@ a {
     background-color: rgba(90, 48, 4, 0.797);
 }
 
+/* Scroll bar */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.815);
+}
+  
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.847);
+}
+
 /* Index page */
 
 .index-section {
     padding: 3rem;
-    height: 90vh;
+    height: 100vh;
 }
 
 .logo-index {
-    margin-bottom: -50%;
+    margin-bottom: 50%;
+}
+
+/* Navbar */
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='antiquewhite' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler{
+    border: 2px solid rgb(175, 165, 152);
 }
 
 /* Footer */
 
+footer {
+    bottom: 0;
+    width: 100%;
+    overflow-x: scroll;
+    scrollbar-width: 0;
+}
+
 .txt-footer {
     color: antiquewhite;
+}
+
+.social-links i {
+    color: rgb(70, 28, 3);
+    font-size: 2rem;
+    margin: 2rem;
+}
+
+/* Media queries */
+
+@media (max-width: 576px) {
+    .justify-content-sm-center {
+        justify-content: center!important;
+    }
+
+    .mx-sm-auto {
+        margin-right: auto!important;
+        margin-left: auto!important;
+    }
+
+    .logo-index {        
+        min-width: 60vw;
+        margin-bottom: 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+       background-color: rgba(70, 28, 3, 0.882); 
+    }
+
+    .logo-index {        
+        width: 60%;
+        margin-bottom: 10%;
+    }
+
+    .social-links i {
+        font-size: 3rem;
+    }
+    
+
 }
