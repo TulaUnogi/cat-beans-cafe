@@ -6,6 +6,12 @@
 
 /* Body & backgrounds */
 
+body {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
 .background-lg {
     background: url('/static/images/website-images/cafe-main.png');
     background-size: cover;
@@ -14,10 +20,8 @@
     overflow-x: hidden;
 }
 
-body {
-    width: 100%;
-    height: 100%;
-    scroll-behavior: smooth;
+.background-plain {
+    background-color: rgb(16, 8, 1);
 }
 
 .bg-black {

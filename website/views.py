@@ -7,4 +7,9 @@ from .models import Booking
 def home(request, template_name="index.html"):
     return TemplateResponse(
         request, template_name, {'background': "background-lg"}
-        )
+    )
+
+def about(request, template_name="about.html"):
+    return TemplateResponse(
+        request, template_name, {'background': "background-plain"}
+    )
