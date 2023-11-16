@@ -37,6 +37,24 @@ a {
     text-decoration: none;
 }
 
+/* Hero image */
+
+.hero-image {
+    height: 30vh;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/static/images/website-images/cafe-main.png");
+    background-position: 50% 70%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border: 1px solid rgb(142, 134, 124);;
+    outline: 1px solid antiquewhite;
+    outline-offset: 10%;
+}
+
+.hero-image h1 {
+    color: whitesmoke;
+}
+
 /* Buttons */
 
 .btn-brown {
