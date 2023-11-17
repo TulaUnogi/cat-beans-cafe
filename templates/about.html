@@ -5,21 +5,63 @@
 {% block content %}
 
 <main class="container-fluid">
-    <div class="row-fluid rounded d-flex justify-content-center">
-        <div class="hero-image col-lg-10 rounded d-flex align-items-center justify-content-center">                
-            <h1 class="display-6 jumbotron-fluid text-center">Why not enjoy your coffee with some biscuits?</h1>
+    <div class="row rounded d-flex justify-content-center">
+        <div class="hero-image col-lg-7 rounded d-flex align-items-center justify-content-center">                
+            <h3 class="display-6 jumbotron-fluid text-center font-white">Why not enjoy your coffee with some biscuits?</h3>
         </div>
     </div>
-    <section class="row-fluid">
-        <div class="card-group">
-            <div class="card">
-                <h1 class="display-7">Menu</h1>
+    <section class="row-fluid d-flex justify-content-center">
+        <div class="col-lg-7 text-center">
+            <h1 class="display-4 m-5 font-brown">About Us</h1>
+            <p>
+                Welcome to Cat Beans Café, the place for all coffee and cat lovers!<br>
+                We're a small café with a big mission. Our team consists of friendly, 
+                full of positive energy visionaires. Our combined passion to coffee, 
+                baking and cats resulted in opening the door of Cat Beans Café in 2023.<br>
+                We're working in co-operation with Cat and Dog Protection Association of 
+                Ireland to help find new homes for our kitties while providing the best 
+                cat café experience to our both human and feline friends.<br>
+                You can be sure that visiting us is going to make you purrrfectly cosy!
+            </p>
+        </div>
+    </section>
+    <section class="row-fluid d-flex justify-content-center">
+        <div class="card-group col-lg-8 card-style">
+            <div class="card text-center shadow">
+                <img src="{% static 'images/website-images/menu.jpg' %}" alt="Mug of coffee with cat-shaped foam" class="card-img-top">
+                <div class="card-body">
+                    <h2 class="display-6 font-brown">Our Menu</h2>
+                    <div class="emphasised">
+                        <p class="card-text">Gluten- free? Vegan? Cake lover?<br>
+                            We've got you covered!<br>
+                            Check out our menu without moving from the couch!
+                        </p> 
+                    </div> 
+                </div>
             </div>
-            <div class="card">
-                <h1 class="display-7">Cats</h1>
+            <div class="card text-center shadow">
+                <img src="{% static 'images/website-images/our-cats.jpg' %}" alt="Cat lying on the floor" class="card-img-top">
+                <div class="card-body">
+                    <h2 class="display-6 font-brown">Our Cats</h2>
+                    <div class="emphasised">
+                        <p>Get familiar with our fluffy friends!</br>
+                            Most of our cats are looking for their new forever homes.</br> 
+                            In this gallery you may find your purrfect match!
+                        </p>
+                    </div> 
+                </div>
             </div>
-            <div class="card">
-                <h1 class="display-7">Contact</h1>
+            <div class="card text-center shadow">
+                <img src="{% static 'images/website-images/contact-us.jpg' %}" alt="Door decoration with a cat on a roof" class="card-img-top">
+                <div class="card-body">
+                    <h2 class="display-6 font-brown">Contact Us</h2>
+                    <div class="emphasised">
+                        <p>Having trouble finding us?</br>
+                            Or maybe you just want to reach out to us?</br> 
+                            If yes, then you can find our details here!
+                        </p> 
+                    </div> 
+                </div>
             </div>
         </div>
             
