@@ -13,3 +13,8 @@ def about(request, template_name="about.html"):
     return TemplateResponse(
         request, template_name, {'background': "background-plain"}
     )
+
+def booking_form(request, template_name="booking-form.html"):
+    return TemplateResponse(
+        request, template_name, {'background': "background-lg"}
+    )
