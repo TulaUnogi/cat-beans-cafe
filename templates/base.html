@@ -17,9 +17,9 @@
 </head>
 <body class=" {{ background }} ">
     <!-- Navbar -->
-    <nav class="container-fluid navbar navbar-expand-lg float-md-end float-lg-end sticky-top">
-        <div class="hstack"> 
-            <a href="#"><img src="{% static 'images/website-images/cat-beans-cafe-logo.png' %}" class="navbar-brand" alt="logo" width="50" aria-label="logo"></a>           
+    <nav class="navbar navbar-expand-lg flex-row ms-auto sticky-top bg-brown">
+        <div class="container-fluid hstack "> 
+            <a href="{% url 'home' %}"><img src="{% static 'images/website-images/cat-beans-cafe-logo.png' %}" class="navbar-brand" alt="logo" width="50" aria-label="logo"></a>
             <button class="navbar-toggler float-md-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>        
@@ -41,27 +41,27 @@
     {% endblock %}
 
     <!-- Footer -->
-    <footer class="bg-black txt-footer">
+    <footer class="bg-brown txt-footer">
         <div class="container-fluid">
             <div class="row hstack">              
-                <div class="col-md-3 text-md-start text-center ">
-                    <h5>Opening hours:</h5>
-                    <div class="col hstack .d-sm-flex .flex-sm-column justify-content-sm-center">
+                <div class="col-md-3 text-md-start text-center m-3">
+                    <p class="lead align-top">Opening hours:</p>
+                    <div class="hstack .d-sm-flex .flex-sm-column justify-content-sm-center fst-italic">
                         <span>Mon - Fri: </span>
                         <span class="ms-md-auto ms-sm-2">8:00 - 17:00</span>
                     </div>
-                    <div class="col hstack .d-sm-flex .flex-sm-column justify-content-sm-center">
+                    <div class="col hstack .d-sm-flex .flex-sm-column justify-content-sm-center fst-italic">
                         <span>Sat: </span>
                         <span class="ms-md-auto ms-sm-2">9:00 - 16:00</span>
                     </div>
-                    <div class="col hstack .d-sm-flex .flex-sm-column justify-content-sm-center">
+                    <div class="col hstack .d-sm-flex .flex-sm-column justify-content-sm-center fst-italic">
                         <span>Sun: </span>
                         <span class="ms-md-auto ms-sm-2">CLOSED</span>
                     </div>
                 </div>
-                <div class="col text-center">
-                    <h5>Let's get social!</h5>
-                    <ul class="list-inline social-links">
+                <div class="col text-center m-3">
+                    <p class="lead align-top">Let's get social!</p>
+                    <ul class="list-inline social-links ">
                         <li class="list-inline-item">
                             <a href="https://www.facebook.com/" target="_blank" area-label="facebook"><i class="fa-brands fa-facebook"></i></a>
                         </li>
@@ -73,13 +73,17 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-3 text-md-end text-center">
-                    <h5>Address:</h5>
-                    <p>100 Rathgar Rd</p>
-                    <p>Dublin 6</p>
-                    <p>D06 EP49</p>
+                <div class="col-md-3 text-md-end text-center m-3">
+                    <p class="lead align-top">Address:</p>
+                    <p class="fst-italic">100 Rathgar Rd<br>
+                        Dublin 6<br>
+                        D06 EP49
+                    </p>
                 </div> 
             </div>
+        </div>
+        <div class="container-fluid text-center">
+            <small>&copy; 2023 Copyright: TulaUnogi for Code Institute</small>
         </div>
     </footer>
     <!-- Linking Bootstrap JS -->

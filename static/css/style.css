@@ -15,6 +15,10 @@
     font-style: italic;
 }
 
+small {
+    color: rgb(162, 149, 132);
+}
+
 /* Body & backgrounds */
 
 body {
@@ -39,6 +43,10 @@ body {
     background-color: black;
 }
 
+.bg-brown {
+    background-color: rgb(32, 24, 19);
+}
+
 .bg-trans-black {
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -51,7 +59,7 @@ a {
 /* Buttons */
 
 .btn-brown {
-    background-color: rgba(70, 28, 3, 0.797);
+    background-color: rgba(74, 52, 38, 0.797);
     margin: auto;
     color: whitesmoke;    
     text-transform: uppercase;
@@ -136,6 +144,8 @@ a {
     border: 2px solid rgb(175, 165, 152);
 }
 
+
+
 /* Footer */
 
 footer {
@@ -150,9 +160,9 @@ footer {
 }
 
 .social-links i {
-    color: rgb(70, 28, 3);
+    color:  rgba(74, 52, 38, 0.797);
     font-size: 2rem;
-    margin: 2rem;
+    margin: 0.9rem;
 }
 
 /* Media queries */
