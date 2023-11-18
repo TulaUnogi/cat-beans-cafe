@@ -31,17 +31,12 @@ TIME_SLOTS = (
 class Customer(models.Model):
 
     user_id = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=50, null=True, blank=True)
-    last_name = models.CharField(max_length=150, null=True, blank=True)
-    email = models.EmailField(max_length=300, null=True, blank=True)
-    contact_phone = models.CharField(max_length=17, null=True, blank=True)
+    phone_number = models.CharField(max_length=17, null=True, blank=True)
 
 
     def __str__(self):
         if self.user_id:
-            return f'{self.first_name + " " + self.last_name}'
-        else:
-            return 'User ID not registered'
+            return self.phone_number
 
 
 # Booking model for reservations
