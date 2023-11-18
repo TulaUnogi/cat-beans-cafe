@@ -1,0 +1,37 @@
+@import url('/static/css/style.css'); 
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+
+
+/* Background */
+
+body {
+    background: none;
+    background-color: rgb(217, 215, 212);  
+}
+
+/* Hero image */
+
+.hero-image {
+    height: 30vh;
+    margin: 2%;
+    font-family: 'Zeyada', cursive;
+    letter-spacing: 0.2rem ;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(167, 146, 146, 0.3)), url("/static/images/website-images/cafe-main.png");
+    background-position: 50% 70%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border: 1px solid rgb(103, 56, 5);
+    outline: 1px solid rgb(103, 56, 5);
+    outline-offset: 5px;
+}
+
+/* About Us */
+
+.card-style {
+    margin: 5%
+}
+
+.card-style div {
+    margin: 2%;
+}
