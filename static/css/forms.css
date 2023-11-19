@@ -1,0 +1,10 @@
+@import url('/static/css/style.css'); 
+
+.brown-inputs {
+    background-color: rgba(90, 48, 4, 0.797);
+}
+
+.comment-text {
+    font-style: italic;
+    color: rgb(99, 79, 55);
+}
