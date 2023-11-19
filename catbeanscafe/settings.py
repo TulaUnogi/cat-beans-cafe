@@ -21,7 +21,7 @@ development = os.environ.get('DEVELOPMENT', False)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-TEMPLARES_DIR = [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'templates', 'allauth')]
+TEMPLARES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Secret key
 
