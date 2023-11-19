@@ -37,8 +37,10 @@ body {
     background-color: rgb(32, 24, 19);
 }
 
-.bg-trans-black {
-    background-color: rgba(0, 0, 0, 0.5);
+.bg-trans-white {
+    background-color: rgba(243, 216, 195, 0.5);
+    backdrop-filter: blur(4px);
+    width: fit-content;
 }
 
 
