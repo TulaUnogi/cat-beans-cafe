@@ -17,57 +17,63 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg flex-row ms-auto sticky-top bg-brown">
-        <div class="container-fluid hstack "> 
-            <a href="{% url 'home' %}"><img src="{% static 'images/website-images/cat-beans-cafe-logo.png' %}" class="navbar-brand" alt="logo" width="50" aria-label="logo"></a>
-            <button class="navbar-toggler float-md-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>        
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <nav class="navbar navbar-expand-lg flex-row ms-auto sticky-top bg-brown hstack">
+        <div class="container-fluid justify-content-between">
+            <div class="col-5"> 
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/website-images/cat-beans-cafe-logo.png' %}" class="navbar-brand nav-logo" alt="logo" aria-label="logo">
+                </a>
+            </div>
+            <div class="col-7">
+                <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>        
+                <div class="collapse navbar-collapse float-lg-end mt-sm-5 mt-lg-auto" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <li class="nav-item">
-                        <a href="{% url 'home' %}" class="nav-link float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page">
-                            Home
-                        </a>
-                    </li>   
+                        <li class="nav-item p-2">
+                            <a href="{% url 'home' %}" class="nav-link btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page">
+                                Home
+                            </a>
+                        </li>   
 
-                    {% if user.is_authenticated %}
-                 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page">
-                            My Bookings
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'account_logout' %}" class="nav-link float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page">
-                           Log Out
-                        </a>
-                    </li>
-
-                    {% elif user.is_superuser %}
+                        {% if user.is_authenticated %}
                     
-                    <li class="nav-item">
-                        <a href="{% url 'admin:index' %}" class="nav-link float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page" >
-                            Admin
-                        </a>
-                    </li>                
+                        <li class="nav-item p-2">
+                            <a href="#" class="nav-link btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page">
+                                My Bookings
+                            </a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a href="{% url 'account_logout' %}" class="nav-link btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page">
+                            Log Out
+                            </a>
+                        </li>
 
-                    {% else %}
+                        {% elif user.is_superuser %}
+                        
+                        <li class="nav-item p-2">
+                            <a href="{% url 'admin:index' %}" class="nav-link btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page" >
+                                Admin
+                            </a>
+                        </li>                
 
-                    <li class="nav-item">
-                        <a href="{% url 'account_login' %}" class="nav-link float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page" >
-                            Log In
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'account_signup' %}" class="nav-link float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto">
-                           Sign Up
-                        </a>
-                    </li>
-                    {% endif %}
+                        {% else %}
 
-                </ul>
+                        <li class="nav-item p-2">
+                            <a href="{% url 'account_login' %}" class="nav-link btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page" >
+                                Log In
+                            </a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a href="{% url 'account_signup' %}" class="nav-link btn btn-secondary btn-brown btn-lg m-3 ms-auto">
+                            Sign Up
+                            </a>
+                        </li>
+                        {% endif %}
+
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -82,15 +88,15 @@
             <div class="row hstack">              
                 <div class="col-md-3 text-md-start text-center m-3">
                     <p class="lead align-top">Opening hours:</p>
-                    <div class="hstack .d-sm-flex .flex-sm-column justify-content-sm-center fst-italic">
+                    <div class="hstack justify-content-sm-center fst-italic">
                         <span>Mon - Fri: </span>
                         <span class="ms-md-auto ms-sm-2">8:00 - 17:00</span>
                     </div>
-                    <div class="col hstack .d-sm-flex .flex-sm-column justify-content-sm-center fst-italic">
+                    <div class="col hstack justify-content-sm-center fst-italic">
                         <span>Sat: </span>
                         <span class="ms-md-auto ms-sm-2">9:00 - 16:00</span>
                     </div>
-                    <div class="col hstack .d-sm-flex .flex-sm-column justify-content-sm-center fst-italic">
+                    <div class="col hstack justify-content-sm-center fst-italic">
                         <span>Sun: </span>
                         <span class="ms-md-auto ms-sm-2">CLOSED</span>
                     </div>
@@ -99,13 +105,13 @@
                     <p class="lead align-top">Let's get social!</p>
                     <ul class="list-inline social-links ">
                         <li class="list-inline-item">
-                            <a href="https://www.facebook.com/" target="_blank" area-label="facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="https://www.instagram.com/" target="_blank" area-label="instagram"><i class="fa-brands fa-square-instagram"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener"><i class="fa-brands fa-square-instagram"></i></a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="https://twitter.com/" target="_blank" area-label="twitter"><i class="fa-brands fa-square-x-twitter"></i></a>
+                            <a href="https://twitter.com/" target="_blank" rel="noopener"><i class="fa-brands fa-square-x-twitter"></i></a>
                         </li>
                     </ul>
                 </div>
