@@ -295,6 +295,7 @@ Creating a clone enables you to make a copy of the current version of this repos
 
 > Code
 
+- <b>[Raymond Penners](https://github.com/pennersr)</b> for amazing Allauth and [Allauth templates](https://github.com/pennersr/django-allauth/tree/main/allauth/templates/account)
 - <b>Roger Pfäffli</b>, Code Institute Alumnus for explaining on Slack how to set up development and DEBUG variables in env.py
 - <b>[Coding Yaar](https://codingyaar.com/shorts/bootstrap-navbar-toggler-color-change/)</b> for Bootstrap navbar toggler colour change tutorial
 
