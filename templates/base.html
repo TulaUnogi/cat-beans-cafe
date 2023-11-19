@@ -25,12 +25,48 @@
             </button>        
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#"><button class=" float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto" data-bs-toggle="button">Log In</button></a>
+                        <a href="{% url 'home' %}" class="nav-link float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page">
+                            Home
+                        </a>
+                    </li>   
+
+                    {% if user.is_authenticated %}
+                 
+                    <li class="nav-item">
+                        <a href="#" class="nav-link float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page">
+                            My Bookings
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><button class="float-md-end btn btn-secondary btn-brown btn-lg m-3" data-bs-toggle="button">Register</button></a>
+                        <a href="{% url 'account_logout' %}" class="nav-link float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page">
+                           Log Out
+                        </a>
                     </li>
+
+                    {% elif user.is_superuser %}
+                    
+                    <li class="nav-item">
+                        <a href="{% url 'admin:index' %}" class="nav-link float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page" >
+                            Admin
+                        </a>
+                    </li>                
+
+                    {% else %}
+
+                    <li class="nav-item">
+                        <a href="{% url 'account_login' %}" class="nav-link float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto" aria-current="page" >
+                            Log In
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'account_signup' %}" class="nav-link float-md-end btn btn-secondary btn-brown btn-lg m-3 ms-auto">
+                           Sign Up
+                        </a>
+                    </li>
+                    {% endif %}
+
                 </ul>
             </div>
         </div>
