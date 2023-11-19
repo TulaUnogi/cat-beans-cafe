@@ -48,6 +48,13 @@ a {
     text-decoration: none;
 }
 
+/* Left section */
+
+.index-section {
+    padding: 3rem;
+    height: 100vh;
+}
+
 /* Buttons */
 
 .btn-brown {

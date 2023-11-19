@@ -1,12 +1,5 @@
 @import url('/static/css/style.css'); 
 
-/* Left section */
-
-.index-section {
-    padding: 3rem;
-    height: 100vh;
-}
-
 /* Big logo*/
 
 .logo-index {
