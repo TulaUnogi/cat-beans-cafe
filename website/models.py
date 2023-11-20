@@ -28,21 +28,21 @@ TIME_SLOTS = (
 
 
 # Extends base User model
-class Customer(models.Model):
+class UserProfile(models.Model):
 
-    user_id = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    customer = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=17, null=True, blank=True)
 
 
     def __str__(self):
-        if self.user_id:
+        if self.customer:
             return self.phone_number
 
 
 # Booking model for reservations
 class Booking(models.Model):
 
-    booking_customer = models.ForeignKey(Customer, null=True, on_delete=models.CASCADE)
+    booking_customer = models.ForeignKey(UserProfile, null=True, on_delete=models.CASCADE)
     booking_date = models.DateField()
     booking_time = models.IntegerField(choices=TIME_SLOTS, default='8:00', blank=False)
     tables_booked = models.IntegerField(choices=TABLE_SIZE, default=0)
