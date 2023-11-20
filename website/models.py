@@ -30,8 +30,8 @@ TIME_SLOTS = (
 # Extends base User model
 class UserProfile(models.Model):
 
-    customer = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    phone_number = models.CharField(max_length=17, null=True, blank=True)
+    customer = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone_number = models.CharField(max_length=17, required=True, blank=True)
 
 
     def __str__(self):
