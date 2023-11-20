@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock %}
+
+{% block head_title %}
+    {% trans "My Profile" %}
+{% endblock head_title %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="row bg-trans-white float-lg-start index-section font-white">
+    <div class="col-lg-7 mb-3">
+        <h1 class="font-brown mb-3 display-3">
+            {% trans "My Profile" %}
+        </h1>
+
+
+{% endblock %}
