@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Booking
-from django_summernote.admin  import SummernoteModelAdmin
+from .models import Booking, UserProfile
+from django_summernote.admin import SummernoteModelAdmin
 
 
 
@@ -11,3 +11,9 @@ class BookingAdmin(SummernoteModelAdmin):
     search_fields = ('booking_customer', 'booking_date',)
     list_filter = ('booking_customer', 'booking_date', 'booking_time','booked_on', 'is_confirmed',)
     summernote_fields = ('additional_info',)
+
+
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('customer', 'phone_number')
+    search_fields = ('phone_number')
