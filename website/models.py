@@ -39,6 +39,13 @@ class UserProfile(models.Model):
             return self.phone_number
 
 
+
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+        post_save.connect(create_user_profile, sender=User)
+
+
 # Booking model for reservations
 class Booking(models.Model):
 
