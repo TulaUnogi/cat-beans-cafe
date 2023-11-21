@@ -30,3 +30,23 @@ class BookingForm(ModelForm):
         fields = ['booking_date', 'booking_time', 'tables_booked', 'additional_info']
 
 
+class ProfileForm(ModelForm):
+    """ 
+    Provides required User data for User profile
+    """
+
+    def __init__(self, *args, **kwargs):
+
+        super().__init__(*args, **kwargs)
+
+        # Crispy form helpers
+        self.helper = FormHelper()
+        self.helper.form_class = 'brown-inputs'
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Submit'))
+    
+
+    # User data fields
+    class Meta:
+        model = UserProfile
+        fields = ['first_name', 'last_name', 'phone_number', 'email']
