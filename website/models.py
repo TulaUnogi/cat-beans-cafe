@@ -49,10 +49,10 @@ def create_user_profile(sender, instance, created, **kwargs):
 # Booking model for reservations
 class Booking(models.Model):
 
-    booking_customer = models.ForeignKey(UserProfile, null=True, on_delete=models.CASCADE)
-    booking_date = models.DateField()
-    booking_time = models.IntegerField(choices=TIME_SLOTS, default='8:00', blank=False)
-    tables_booked = models.IntegerField(choices=TABLE_SIZE, default=0)
+    booking_customer = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    booking_date = models.DateField(default=datetime.date.today(), required=True)
+    booking_time = models.IntegerField(choices=TIME_SLOTS, default='8:00', blank=False, required=true)
+    tables_booked = models.IntegerField(choices=TABLE_SIZE, default=0, required=true)
     additional_info = models.TextField(max_length=400, null=True, blank=True)
     booked_on = models.DateTimeField(auto_now_add=True)
     is_confirmed = models.IntegerField(choices=CONFIRMATION, default=0)          
@@ -63,4 +63,13 @@ class Booking(models.Model):
         
 
     def __str__(self):
+
+        # Prevents booking dates in the past
+        def save(self, *args, **kwargs):
+
+            if self.date < datetime.date.today():
+                raise ValidationError("The date cannot be in the past!")
+            else:
+                super(Event, self).save(*args, **kwargs)
+
         return f'Booking for {self.booking_date} at {self.booking_time} currently has a status: {self.is_confirmed}'
