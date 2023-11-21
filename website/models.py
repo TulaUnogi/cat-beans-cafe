@@ -29,17 +29,21 @@ TIME_SLOTS = (
 )
 
 
-# Extends base User model
+
 class UserProfile(models.Model):
+    """
+    Extends base User model
+    """
 
     customer = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_number = models.CharField(max_length=17, required=True, blank=True)
-
+    first_name = CharField(required=True, max_length=50, blank=True)
+    last_name = CharField(required=True, max_length=50, blank=True)
+    phone_number = models.CharField(required=True, max_length=17, blank=True)
+    email = models.EmailField(required=True, max_length=300, blank=True)
 
     def __str__(self):
         if self.customer:
             return self.phone_number
-
 
 
 def create_user_profile(sender, instance, created, **kwargs):
@@ -72,6 +76,6 @@ class Booking(models.Model):
             if self.date < datetime.date.today():
                 raise ValidationError("The date cannot be in the past!")
             else:
-                super(Event, self).save(*args, **kwargs)
+                super(Booking, self).save(*args, **kwargs)
 
         return f'Booking for {self.booking_date} at {self.booking_time} currently has a status: {self.is_confirmed}'
