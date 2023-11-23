@@ -37,6 +37,11 @@ ALLOWED_HOSTS = [
     '8000-tulaunogi-catbeanscafe-yyb8mlf1l4c.ws-eu106.gitpod.io'
     ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://cat-beans-cafe-08a84ae29847.herokuapp.com',
+    'https://8000-tulaunogi-catbeanscafe-yyb8mlf1l4c.ws-eu106.gitpod.io'
+]
+
 
 # Application definition
 
@@ -64,9 +69,8 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
-CRISPY_TEMPLATE_PACK = 'uni_form'
+CRISPY_TEMPLATE_PACK = ('bootstrap5')
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 
 AUTH_PROFILE_MODULE = 'website.UserProfile'
 
