@@ -18,7 +18,7 @@ def about(request, template_name="about.html"):
 
 
 @login_required     
-def booking_form(request):
+def booking_form(self, request):
 
     if request.method == 'POST':        
 
@@ -31,22 +31,23 @@ def booking_form(request):
             booking.customer = customer_data
             booking.save()
             messages.success(request, 'Thank you! Your booking has been saved! You can access it through "My Bookings" page.')
-            return redirect('/')
+            return redirect('home')
         else:
             messages.error(request, 'Please make sure to fill up all the necessary fields!')
             return redirect(template_name)
 
         return render(
-            request, template_name, {'form': form},
+            request, self.template_name, {'form': form},
         )
 
             
 @login_required
-def user_profile(request, template_name="user-profile"):
+def user_profile(self, request):
     
     profile = request.user.get_profile()
+    template_name="user-profile"
 
     return render(
-        request, template_name,
+        request, self.template_name
     )
 
