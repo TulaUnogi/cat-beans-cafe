@@ -42,17 +42,14 @@
 
 #### Data models
 
-> Customer model
+> UserProfile model
 
 - The revised data models developed as the project evolved into it's current state:
 
 | Key | Name | Field |
 |--|--|--|
-| PrimaryKey | user_id | OnetoOneField  |
-| x | first_name | Charfield |
-| x | last_name | Charfield |
-| x | email | EmailField |
-| x |contact_phone | Charfield |
+| PrimaryKey | customer | OnetoOneField  |
+| x | phone_number | Charfield |
 
 ---
 
@@ -60,11 +57,12 @@
 
 | Key | Name | Field |
 |--|--|--|
-| ForeignKey | booking_customer | ManytoOneField  |
+| ForeignKey | booking_customer | ForeignKey  |
 | x | booking_date | DateField |
-| x | booking_time | TimeField |
-| ForeignKey | tables_booked | IntegerField |
+| x | booking_time | IntegerField |
+| x | tables_booked | IntegerField |
 | x | additional_info  | TextField |
+| x | booked_on | DateTimeField |
 | x | is_confirmed | IntegerField |
 
 ---
