@@ -1,4 +1,4 @@
-import datetime
+from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 
 
 CONFIRMATION = ((0, 'Awaiting confirmation'), (1, 'Booking confirmed'), (2, 'Booking declined'))
-TABLE_SIZE = ((0, 'Single window seat'), (1, 'Small- 2 seats'), (2, 'Medium- 4 seats'), (3, 'Large- 6 seats'))
+TABLE_SIZE = ((1, 'Single window seat'), (2, 'Small- 2 seats'), (4, 'Medium- 4 seats'), (6, 'Large- 6 seats'))
 TIME_SLOTS = (
     (0, '8:00 - 8:30'),
     (1, '8:30 - 9:00'),
@@ -36,10 +36,7 @@ class UserProfile(models.Model):
     """
 
     customer = models.OneToOneField(User, on_delete=models.CASCADE)
-    first_name = CharField(required=True, max_length=50, blank=True)
-    last_name = CharField(required=True, max_length=50, blank=True)
-    phone_number = models.CharField(required=True, max_length=17, blank=True)
-    email = models.EmailField(required=True, max_length=300, blank=True)
+    phone_number = models.CharField(max_length=17, blank=True)
 
     def __str__(self):
         if self.customer:
@@ -56,9 +53,9 @@ def create_user_profile(sender, instance, created, **kwargs):
 class Booking(models.Model):
 
     booking_customer = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    booking_date = models.DateField(default=datetime.date.today(), required=True)
-    booking_time = models.IntegerField(choices=TIME_SLOTS, default='8:00', blank=False, required=true)
-    tables_booked = models.IntegerField(choices=TABLE_SIZE, default=0, required=true)
+    booking_date = models.DateField(default=timezone.now())
+    booking_time = models.IntegerField(choices=TIME_SLOTS, default=0)
+    tables_booked = models.IntegerField(choices=TABLE_SIZE, default=0)
     additional_info = models.TextField(max_length=400, null=True, blank=True)
     booked_on = models.DateTimeField(auto_now_add=True)
     is_confirmed = models.IntegerField(choices=CONFIRMATION, default=0)          
@@ -69,13 +66,5 @@ class Booking(models.Model):
         
 
     def __str__(self):
-
-        # Prevents booking dates in the past
-        def save(self, *args, **kwargs):
-
-            if self.date < datetime.date.today():
-                raise ValidationError("The date cannot be in the past!")
-            else:
-                super(Booking, self).save(*args, **kwargs)
 
         return f'Booking for {self.booking_date} at {self.booking_time} currently has a status: {self.is_confirmed}'
