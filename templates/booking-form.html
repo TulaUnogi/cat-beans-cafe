@@ -2,8 +2,27 @@
 
 {% load static %}
 
+{% load crispy_forms_tags %}
 
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock %}
 
 {% block content %}
+
+    {% if user.is_authenticated %}
+        
+        <form method="POST">  
+                    
+            {% csrf_token %}
+            {% crispy BookingForm BookingForm.helper %}
+
+        </form>
+
+    {% else %}
+
+        <p class="lead font-brown">You must be logged in to access the booking system!</p>
+    
+    {% endif %}
 
 {%endblock%}
