@@ -16,4 +16,4 @@ class BookingAdmin(SummernoteModelAdmin):
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('customer', 'phone_number')
-    search_fields = ('phone_number')
+    search_fields = ['phone_number',]
