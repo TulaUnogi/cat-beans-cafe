@@ -20,11 +20,11 @@ def about(request, template_name="about.html"):
 @login_required     
 def booking_form(request):
 
+    template_name = 'booking-form.html'
+    form = BookingForm(data=request.POST)
+
     if request.method == 'POST':        
-
-        form = BookingForm(data=request.POST)
-        template_name = 'booking-form.html'
-
+        
         if form.is_valid():
             booking = form.save(commit=False)
             customer_data = UserProfile.objects.get(user=request.user)
@@ -36,9 +36,9 @@ def booking_form(request):
             messages.error(request, 'Please make sure to fill up all the necessary fields!')
             return redirect(template_name)
 
-        return render(
-            request, template_name, {'form': form},
-        )
+    return render(
+                request, template_name, {'form': form},
+                )
 
             
 @login_required
@@ -48,6 +48,6 @@ def user_profile(request):
     template_name="user-profile"
 
     return render(
-        request, template_name
-    )
+                request, template_name
+                )
 
