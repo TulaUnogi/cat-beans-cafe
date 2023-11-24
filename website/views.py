@@ -18,7 +18,7 @@ def about(request, template_name="about.html"):
 
 
 @login_required     
-def booking_form(self, request):
+def booking_form(request):
 
     if request.method == 'POST':        
 
@@ -37,17 +37,17 @@ def booking_form(self, request):
             return redirect(template_name)
 
         return render(
-            request, self.template_name, {'form': form},
+            request, template_name, {'form': form},
         )
 
             
 @login_required
-def user_profile(self, request):
+def user_profile(request):
     
     profile = request.user.get_profile()
     template_name="user-profile"
 
     return render(
-        request, self.template_name
+        request, template_name
     )
 
