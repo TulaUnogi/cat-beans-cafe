@@ -1,4 +1,3 @@
-from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
@@ -53,7 +52,7 @@ def create_user_profile(sender, instance, created, **kwargs):
 class Booking(models.Model):
 
     booking_customer = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    booking_date = models.DateField(default=timezone.now())
+    booking_date = models.DateField()
     booking_time = models.IntegerField(choices=TIME_SLOTS, default=0)
     tables_booked = models.IntegerField(choices=TABLE_SIZE, default=0)
     additional_info = models.TextField(max_length=400, null=True, blank=True)
