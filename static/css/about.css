@@ -9,6 +9,11 @@ body {
     background-color: rgb(217, 215, 212);  
 }
 
+.bg-trans-brown {
+    background-color: rgba(30, 19, 10, 0.5);
+    backdrop-filter: blur(4px);
+}
+
 /* Hero image */
 
 .hero-image {
@@ -34,4 +39,14 @@ body {
 
 .card-style div {
     margin: 2%;
+}
+
+/* Modals */
+
+.menu-pic {
+    height: 70vh;
+}
+
+.modal-no-margin {
+    margin: 0%!important;
 }

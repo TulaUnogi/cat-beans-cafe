@@ -42,7 +42,29 @@
                             We've got you covered!<br>
                             Check out our menu without moving from the couch!
                         </p> 
-                    </div> 
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-secondary btn-brown" data-bs-toggle="modal" data-bs-target="#menu">
+                        See Our Menu
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade modal-no-margin" id="menu" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-fullscreen modal-no-margin">
+                            <div class="modal-content bg-trans-brown col modal-no-margin">
+                                <div class="modal-header">
+                                    <h1 class="display-6 font-brown" id="menuModalLabel">Our Menu</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{% static 'images/website-images/our-menu.jpg' %}" alt="Our Menu" class="img-fluid menu-pic">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary btn-brown" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card text-center shadow">
