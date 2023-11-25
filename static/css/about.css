@@ -14,6 +14,10 @@ body {
     backdrop-filter: blur(4px);
 }
 
+.bg-gradient {
+    background: linear-gradient(45deg, rgba(255,254,252,1) 0%, rgba(255,249,242,1) 50%, rgb(217, 215, 212) 100%)!important;
+}
+
 /* Hero image */
 
 .hero-image {
@@ -49,4 +53,13 @@ body {
 
 .modal-no-margin {
     margin: 0%!important;
+}
+
+/* Borders */
+
+.border-shadow {
+    border: 2px solid rgba(30, 21, 1, 0.444)!important;
+    box-shadow: 0 0 10px rgb(82, 61, 0);
+    -webkit-box-shadow: 0 0 5px rgba(82, 61, 0, 1); 
+    -moz-box-shadow: 0 0 5px rgba(82, 61, 0, 1); 
 }
