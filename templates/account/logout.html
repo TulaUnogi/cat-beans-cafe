@@ -11,9 +11,9 @@
     <div class="row bg-trans-white float-lg-start index-section font-white">
         <div class="col-lg-7 mb-3">
             <h1 class="font-brown mb-3 display-3">
-                {% trans "Sign Up" %}
+                {% trans "Sign Out" %}
             </h1>
-            <p class="font-brown lead">{% trans 'Are you sure you want to sign out?' %}</p>
+            <p class="font-brown lead m-5">{% trans 'Are you sure you want to sign out?' %}</p>
             {% url 'account_logout' as action_url %}
             {% element form method="post" action=action_url no_visible_fields=True %}
                 {% slot body %}
