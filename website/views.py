@@ -27,14 +27,14 @@ def booking_form(request):
         
         if form.is_valid():
             booking = form.save(commit=False)
-            customer_data = UserProfile.objects.get(user=request.user)
+            customer_data = UserProfile.objects.all()
             booking.customer = customer_data
-            booking.save()
+            booking.save(commit=True)
             messages.success(request, 'Thank you! Your booking has been saved! You can access it through "My Bookings" page.')
             return redirect('home')
         else:
             messages.error(request, 'Please make sure to fill up all the necessary fields!')
-            return redirect(template_name)
+            return redirect(booking_form)
 
     return render(
                 request, template_name, {'form': form},
@@ -44,10 +44,13 @@ def booking_form(request):
 @login_required
 def user_profile(request):
     
-    profile = request.user.get_profile()
-    template_name="user-profile"
+    customer_data = UserProfile.objects.all()
+    my_bookings = Booking.objects.all()
+
+    template_name = 'user-profile.html'
 
     return render(
-                request, template_name
+                request, template_name, {'profile': customer_data, 'bookings': my_bookings}
                 )
+
 
