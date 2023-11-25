@@ -1,7 +1,7 @@
 import datetime
 from .models import UserProfile, Booking
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm, CheckboxSelectMultiple
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Submit
 from django.urls import reverse
@@ -32,7 +32,7 @@ class BookingForm(ModelForm):
     # Provides a date widget to the form 
     booking_date = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}), initial=datetime.date.today, required=True)
     booking_time = forms.ChoiceField(choices=TIME_SLOTS, initial=["8:00 - 8:30",], required=True)
-    tables_booked = forms.MultipleChoiceField(choices=TABLE_SIZE, initial="Single window seat", required=True)
+    tables_booked = forms.MultipleChoiceField(choices=TABLE_SIZE, widget=CheckboxSelectMultiple(), initial="Single window seat", required=True)
     additional_info = forms.CharField(max_length=400, widget=SummernoteWidget(), required=False)
 
 
@@ -49,8 +49,6 @@ class BookingForm(ModelForm):
             raise ValidationError("The date cannot be in the past!")
         else:
             super(Booking, self).save(*args, **kwargs)
-
-
 
 
 class ProfileForm(ModelForm):
