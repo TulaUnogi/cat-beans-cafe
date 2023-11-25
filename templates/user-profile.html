@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extrahead %}
+
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+{%endblock%}
+
+{% block content %}
+
+    <section class="container-fluid">
+        <div class="row rounded d-flex justify-content-center">
+            <div class="hero-image col-lg-7 rounded d-flex align-items-center justify-content-center">                
+                <h3 class="display-6 jumbotron-fluid text-center font-white">Why not enjoy your coffee with some biscuits?</h3>
+            </div>
+        </div>
+
+        {% if user.is_authenticated %}
+
+            <div class="row-fluid d-flex justify-content-center">
+                <div class="col-lg-7 text-center">
+                    <h1 class="display-4 m-5 text-capitalize font-brown">{{ user.username}}'s Profile</h1>
+                    <p class="emphasised">Hello, {{ user.username}}! Thank you for signing in!</p>
+                    <p class="emphasised">Here you can find and manage your profile details as well as your bookings!</p>
+                </div>
+            </div>
+            <div class="row-fluid d-flex justify-content-center">
+                <div class="col-lg-7 text-center bg-gradient border-shadow rounded p-5 m-5">
+                    <h2 class="display-5 m-5 font-brown">Your Details:</h2>
+                    <ul class="list-unstyled">
+                        <li class="row border-bottom">
+                            <div class="col-md-6 lead">
+                                <strong class="float-lg-start">First name: </strong>
+                            </div>
+                            <div class="col-md-6">
+                               <em class="float-lg-end">{{user.first_name}}</em> 
+                            </div>
+                        </li>
+                        <li class="row border-bottom">
+                            <div class="col-md-6 lead">
+                                <strong class="float-lg-start">Last name: </strong>
+                            </div> 
+                            <div class="col-md-6">
+                                <em class="float-lg-end">{{user.last_name}}</em>
+                            </div>
+                        </li>
+                        <li class="row border-bottom">
+                            <div class="col-md-6 lead">
+                                <strong class="float-lg-start">Email: </strong>
+                            </div> 
+                            <div class="col-md-6">
+                                <em class="float-lg-end">{{ user.email }}</em>
+                            </div>
+                        </li>
+                        <li class="row border-bottom">
+                            <div class="col-md-6 lead">
+                                <strong class=" float-lg-start">Phone number:</strong> 
+                            </div>
+                            <div class="col-md-6">
+                                <em class="float-lg-end">{{ user.phone_number }}</em>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="row-fluid d-flex justify-content-center">
+                        <div class="col-lg-3 m-4">
+                            <button type="submit" class="btn btn-secondary btn-brown px-5">Edit</button>
+                        </div>
+                        <div class="col-lg-3 m-4">
+                            <button type="submit" class="btn btn-secondary btn-danger px-5">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% else %}
+            <div class="row-fluid d-flex justify-content-center">
+                <div class="col-lg-7 text-center">
+                    <h1 class="display-4 m-5">Please Log in</h1>
+                    <p>
+                        To access this page you need to <a href="{% url 'account_login' %}" aria-label="Log in">log in</a> first.
+                    </p>
+                    <p>If you don't have an account yet please <a href="{% url 'signup' %}" aria-label="Sign up">sign up</a>!</p>
+                </div>
+            </div>
+        
+        {% endif %}
+            
+    </section>
+
+{%endblock%}
