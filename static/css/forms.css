@@ -1,7 +1,7 @@
 @import url('/static/css/style.css'); 
 
-.brown-inputs {
-    background-color: rgba(90, 48, 4, 0.797);
+.brown-inputs input, .brown-inputs select {
+    background-color: rgba(88, 59, 22, 0.205);
 }
 
 .comment-text {
