@@ -20,7 +20,6 @@ class BookingForm(ModelForm):
 
         # Crispy form helpers
         self.helper = FormHelper()
-        self.helper.form_class = 'brown-inputs'
         self.helper.form_method = 'post'
         self.helper.layout = Layout(
             Fieldset(
