@@ -24,9 +24,9 @@ class BookingForm(ModelForm):
         self.helper.form_method = 'post'
         self.helper.layout = Layout(
             Fieldset(
-                None,'booking_date', 'booking_time', 'tables_booked', 'additional_info'
+                None,'booking_date', 'booking_time', 'tables_booked', 'additional_info', css_class='brown-inputs'
             ),
-            Submit('submit', 'Submit', css_class='btn btn-secondary btn-brown')
+            Submit('submit', 'Submit', css_class='btn btn-secondary btn-brown mb-4 mx-auto px-5')
         )           
 
     # Provides a date widget to the form 
