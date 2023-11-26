@@ -165,6 +165,15 @@ The User Stories include the acceptance criteria and are broken down into smalle
 
 # Features implemented
 
+- [USER STORY: DEPLOYMENT](https://github.com/TulaUnogi/cat-beans-cafe/issues/16)
+- [USER STORY: ADMIN PANEL](https://github.com/TulaUnogi/cat-beans-cafe/issues/17)
+- [USER STORY: NAVBAR AND FOOTER](https://github.com/TulaUnogi/cat-beans-cafe/issues/20)
+- [USER STORY: ABOUT US](https://github.com/TulaUnogi/cat-beans-cafe/issues/19)
+- [USER STORY: ABOUT US](https://github.com/TulaUnogi/cat-beans-cafe/issues/19)
+- [USER STORY: MENU](https://github.com/TulaUnogi/cat-beans-cafe/issues/26)
+- [USER STORY: GOOGLE MAPS](https://github.com/TulaUnogi/cat-beans-cafe/issues/25)
+
+
 ##### [ Back to Top ](#table-of-contents)
 
 ---
