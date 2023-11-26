@@ -189,6 +189,10 @@ The User Stories include the acceptance criteria and are broken down into smalle
  
 # Known bugs 
 
+- Currently signup page doesn't display the custom sign up form and stopped saving data
+- Forms don't get their data saved
+- Media queries and final styling not applied to all the pages yet, which results in unfinished layout at some occasions
+
 ##### [ Back to Top ](#table-of-contents)
 
 ---
