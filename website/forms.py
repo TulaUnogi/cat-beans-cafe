@@ -31,7 +31,7 @@ class BookingForm(ModelForm):
     # Provides a date widget to the form 
     booking_date = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}), initial=datetime.date.today, required=True)
     booking_time = forms.ChoiceField(choices=TIME_SLOTS, initial=["8:00 - 8:30",], required=True)
-    tables_booked = forms.MultipleChoiceField(choices=TABLE_SIZE, widget=CheckboxSelectMultiple(), initial="Single window seat", required=True)
+    tables_booked = forms.MultipleChoiceField(choices=TABLE_SIZE, widget=CheckboxSelectMultiple(), initial="Single window seat", required=False)
     additional_info = forms.CharField(max_length=400, widget=SummernoteWidget(), required=False)
 
 
@@ -44,7 +44,8 @@ class BookingForm(ModelForm):
     # Prevents booking dates in the past
     def save(self, *args, **kwargs):
 
-        if self.booking_date < datetime.date.today():
+        data = self.cleaned_data
+        if data.get('booking_date') < datetime.date.today():        
             raise ValidationError("The date cannot be in the past!")
         else:
             super(Booking, self).save(*args, **kwargs)
