@@ -65,7 +65,9 @@
                     </ul>
                     <div class="row-fluid d-flex justify-content-center">
                         <div class="col-lg-3 m-4">
-                            <button type="submit" class="btn btn-secondary btn-brown px-5">Edit</button>
+                            <a href="{% url 'editprofile' %}" aria-label="edit profile">
+                                <button type="submit" class="btn btn-secondary btn-brown px-5">Edit</button>
+                            </a>
                         </div>
                         <div class="col-lg-3 m-4">
                             <button type="submit" class="btn btn-secondary btn-danger px-5">Delete</button>
