@@ -4,6 +4,7 @@ from django.views import generic, View
 from .models import Booking, UserProfile
 from website.forms import BookingForm, ProfileForm
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 
 def home(request, template_name="index.html"):
@@ -53,4 +54,27 @@ def user_profile(request):
                 request, template_name, {'profile': customer_data, 'bookings': my_bookings}
                 )
 
+@login_required
+def edit_profile(request):
+
+    user_id = request.user.id
+    customer = get_object_or_404(User, id=user_id)
+    form = ProfileForm(instance=customer)
+    template_name = 'edit-profile.html'
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=customer)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.customer = customer
+            instance.save(commit=True)
+            messages.success(request, 'Thank you! Your profile has been updated!')
+            return redirect('profile')
+        else:
+            messages.error(request, 'Make sure you filled up all the required fields properly!')
+            return redirect('profile')
+
+    return render(request, template_name, {'form': form})
+
+    
 
