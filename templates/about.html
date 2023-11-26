@@ -35,7 +35,7 @@
         <div class="card-group col-lg-8 card-style">
             <div class="card text-center shadow">
                 <img src="{% static 'images/website-images/menu.jpg' %}" alt="Mug of coffee with cat-shaped foam" class="card-img-top">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h2 class="display-6 font-brown">Our Menu</h2>
                     <div class="emphasised">
                         <p class="card-text">Gluten- free? Vegan? Cake lover?<br>
@@ -43,7 +43,7 @@
                             Check out our menu without moving from the couch!
                         </p> 
                     </div>
-                    <!-- Button trigger modal -->
+                    <!-- Button triggering modal -->
                     <button type="button" class="btn btn-secondary btn-brown" data-bs-toggle="modal" data-bs-target="#menu">
                         See Our Menu
                     </button>
@@ -53,7 +53,7 @@
                         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-fullscreen modal-no-margin">
                             <div class="modal-content bg-trans-brown col modal-no-margin">
                                 <div class="modal-header">
-                                    <h1 class="display-6 font-brown" id="menuModalLabel">Our Menu</h1>
+                                    <h3 class="display-6 font-brown" id="menuModalLabel">Our Menu</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -69,37 +69,105 @@
             </div>
             <div class="card text-center shadow">
                 <img src="{% static 'images/website-images/book-table.jpg' %}" alt="Cat sitting at the table" class="card-img-top">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h2 class="display-6 font-brown">Book Now</h2>
                     <div class="emphasised">
                         <p class="card-text">Like to plan ahead?<br>
                             Make sure that there's always a table<br>
                             ready for your visit!
                         </p> 
-                    </div> 
-                </div>
+                    </div>
+
+                    <!-- Button redirecting to booking page -->
+                    <a href="{% url 'booking' %}" class="d-flex flex-column justify-content-center">
+                        <button type="button" class="btn btn-secondary btn-brown">
+                            Book Now
+                        </button>
+                    </a>
+
+                    
+                </div>                
             </div>
             <div class="card text-center shadow">
                 <img src="{% static 'images/website-images/our-cats.jpg' %}" alt="Cat lying on the floor" class="card-img-top">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h2 class="display-6 font-brown">Our Cats</h2>
                     <div class="emphasised">
                         <p>Get familiar with our fluffy friends!</br>
                             Most of our cats are looking for their new forever homes.</br> 
                             In this gallery you may find your purrfect match!
                         </p>
+                    </div>
+
+                    <!-- Button triggering modal -->
+                    <button type="button" class="btn btn-secondary btn-brown" data-bs-toggle="modal" data-bs-target="#cats">
+                        See Our Cats
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade modal-no-margin" id="cats" tabindex="-1" aria-labelledby="catsModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-fullscreen modal-no-margin">
+                            <div class="modal-content bg-trans-brown col modal-no-margin">
+                                <div class="modal-header">
+                                    <h3 class="display-6 font-brown" id="catsModalLabel">Our Cats</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="font-white emphasised">Cats pictures will be here soon!</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary btn-brown" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div> 
                 </div>
             </div>                        
             <div class="card text-center shadow">
                 <img src="{% static 'images/website-images/contact-us.jpg' %}" alt="Door decoration with a cat on a roof" class="card-img-top">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h2 class="display-6 font-brown">Contact Us</h2>
                     <div class="emphasised">
                         <p>Having trouble finding us?</br>
                             Or maybe you just want to reach out to us?</br> 
                             If yes, then you can find our details here!
                         </p> 
+                    </div> 
+
+                    <!-- Button triggering modal -->
+                    <button type="button" class="btn btn-secondary btn-brown" data-bs-toggle="modal" data-bs-target="#contact">
+                        Contact Us
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade modal-no-margin" id="contact" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-fullscreen modal-no-margin">
+                            <div class="modal-content bg-trans-brown col modal-no-margin">
+                                <div class="modal-header">
+                                    <h3 class="display-6 font-brown" id="contactModalLabel">Find Us Here!</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body font-white d-flex justify-content-lg-around">
+                                    <span>
+                                        <h5 class="display-6">Address:</h5>
+                                        <p class="emphasised">100 Rathgar Rd</p>
+                                        <p class="emphasised">Dublin 6</p>
+                                        <p class="emphasised">D06 EP49</p>
+                                        <h5 class="display-6">Phone:</h5>
+                                        <p class="emphasised">+353 20 916 1054</p>
+                                        <h5 class="display-6">Email:</h5>
+                                        <p class="emphasised">catbeanscafe@gmail.com</p>
+                                    </span>
+                                    <span>
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2383.716475352995!2d-6.2766141236692645!3d53.31252377725413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670c07f9c1030d%3A0xb2c83a953c879002!2s100%20Rathgar%20Rd%2C%20Rathgar%2C%20Dublin%206%2C%20D06%20EP49!5e0!3m2!1sen!2sie!4v1701005428561!5m2!1sen!2sie" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </span>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary btn-brown" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div> 
                 </div>
             </div>            
