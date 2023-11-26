@@ -55,18 +55,18 @@ def user_profile(request):
                 )
 
 @login_required
-def edit_profile(request):
+def edit_profile(request, username):
 
-    user_id = request.user.id
-    customer = get_object_or_404(User, id=user_id)
-    form = ProfileForm(instance=customer)
+    user_id = request.user.username
+    user = get_object_or_404(User, id=user_id)
+    form = ProfileForm(instance=user)
     template_name = 'edit-profile.html'
 
     if request.method == 'POST':
-        form = ProfileForm(request.POST, instance=customer)
+        form = ProfileForm(request.POST, instance=user)
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.customer = customer
+            instance.user = user
             instance.save(commit=True)
             messages.success(request, 'Thank you! Your profile has been updated!')
             return redirect('profile')
@@ -76,5 +76,15 @@ def edit_profile(request):
 
     return render(request, template_name, {'form': form})
 
-    
+@login_required
+def delete_account(request, username):
 
+    if user.is_authenticated():
+        user_id = request.user.username
+        user = get_object_or_404(User, id=user_id)
+        user.delete()
+        messages.success(request, 'Your booking has been cancelled')
+        return redirect('home')
+    else:
+        messages.error(request, 'User not authorised. Access denied.')
+        return redirect('/')
