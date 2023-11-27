@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
@@ -35,7 +36,10 @@ class UserProfile(models.Model):
     """
 
     customer = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_number = models.CharField(max_length=17, blank=True)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=17)
+    email = models.EmailField(max_length=300)
 
     def __str__(self):
         if self.customer:
@@ -51,8 +55,8 @@ class UserProfile(models.Model):
 # Booking model for reservations
 class Booking(models.Model):
 
-    booking_customer = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    booking_date = models.DateField()
+    booking_customer = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True)
+    booking_date = models.DateField(null=True)
     booking_time = models.IntegerField(choices=TIME_SLOTS, default=0)
     tables_booked = models.IntegerField(choices=TABLE_SIZE, default=0)
     additional_info = models.TextField(max_length=400, null=True, blank=True)
