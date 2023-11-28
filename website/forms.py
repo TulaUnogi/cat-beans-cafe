@@ -1,9 +1,9 @@
 import datetime
 from .models import UserProfile, Booking
 from django import forms
-from django.forms import ModelForm, CheckboxSelectMultiple
+from django.forms import ModelForm, CheckboxSelectMultiple, TextInput
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, Submit
+from crispy_forms.layout import Submit
 from django.urls import reverse
 from django_summernote.widgets import SummernoteWidget
 from .models import TABLE_SIZE, TIME_SLOTS
@@ -20,18 +20,13 @@ class BookingForm(ModelForm):
 
         # Crispy form helpers
         self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.layout = Layout(
-            Fieldset(
-                None,'booking_date', 'booking_time', 'tables_booked', 'additional_info', css_class='brown-inputs'
-            ),
-            Submit('submit', 'Submit', css_class='btn btn-secondary btn-brown mb-4 mx-auto px-5')
-        )           
+        self.helper.form_method = 'post'        
+        self.helper.add_input(Submit('submit', 'Submit', css_class='btn btn-secondary btn-brown mb-4 mx-auto px-5'))           
 
     # Provides a date widget to the form 
-    booking_date = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}), initial=datetime.date.today, required=True)
-    booking_time = forms.ChoiceField(choices=TIME_SLOTS, initial=["8:00 - 8:30",], required=True)
-    tables_booked = forms.MultipleChoiceField(choices=TABLE_SIZE, widget=CheckboxSelectMultiple(), initial="Single window seat", required=False)
+    booking_date = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date', 'value': datetime.date.today}), required=False)
+    booking_time = forms.ChoiceField(choices=TIME_SLOTS, initial=["8:00 - 8:30",], required=False)
+    tables_booked = forms.MultipleChoiceField(choices=TABLE_SIZE, widget=CheckboxSelectMultiple(), required=False)
     additional_info = forms.CharField(max_length=400, widget=SummernoteWidget(), required=False)
 
 
@@ -42,7 +37,7 @@ class BookingForm(ModelForm):
 
 
     # Prevents booking dates in the past
-    def save(self, *args, **kwargs):
+    def save_booking(self, *args, **kwargs):
 
         data = self.cleaned_data
         if data.get('booking_date') < datetime.date.today():        
@@ -67,10 +62,10 @@ class ProfileForm(ModelForm):
         self.helper.add_input(Submit('submit', 'Submit'))
     
         
-        first_name = forms.CharField(required=True, max_length=50)
-        last_name = forms.CharField(required=True, max_length=50)
-        phone_number = forms.CharField(required=True, max_length=17)
-        email = forms.EmailField(required=True, max_length=300)
+        first_name = forms.CharField(required=True, max_length=50, widget=TextInput(attrs={'autocomplete': 'given-name',}))
+        last_name = forms.CharField(required=True, max_length=50, widget=TextInput(attrs={'autocomplete': 'family-name',}))
+        phone_number = forms.CharField(required=True, max_length=17, widget=TextInput(attrs={'autocomplete': 'tel',}))
+        email = forms.EmailField(required=True, max_length=300, widget=TextInput(attrs={'autocomplete': 'email',}))
 
     def profile_data(self, request, user):
 
