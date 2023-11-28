@@ -66,11 +66,20 @@ class ProfileForm(ModelForm):
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Submit'))
     
-    
-    first_name = forms.CharField(required=True, max_length=50)
-    last_name = forms.CharField(required=True, max_length=50)
-    phone_number = forms.CharField(required=True, max_length=17)
-    email = forms.EmailField(required=True, max_length=300)
+        
+        first_name = forms.CharField(required=True, max_length=50)
+        last_name = forms.CharField(required=True, max_length=50)
+        phone_number = forms.CharField(required=True, max_length=17)
+        email = forms.EmailField(required=True, max_length=300)
+
+    def profile_data(self, request, user):
+
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.phone_number = self.cleaned_data['phone_number']
+        user.email = self.cleaned_data['email']
+
+        user.save(commit=True)
 
     # User data fields
     class Meta:
