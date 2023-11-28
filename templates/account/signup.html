@@ -27,7 +27,7 @@
             {% element form form=form method="post" action=action_url tags="entrance,signup" %}
                 {% slot body %}
                     {% csrf_token %}
-                    {% crispy form %}
+                    {{ form | crispy }}
                     {% if redirect_field_value %}
                         <input type="hidden"
                             name="{{ redirect_field_name }}"
