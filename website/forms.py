@@ -21,19 +21,19 @@ class BookingForm(ModelForm):
         # Crispy form helpers
         self.helper = FormHelper()
         self.helper.form_method = 'post'        
-        self.helper.add_input(Submit('submit', 'Submit', css_class='btn btn-secondary btn-brown mb-4 mx-auto px-5'))           
+        self.helper.add_input(Submit('submit', 'Submit', css_class='btn btn-secondary btn-brown mb-4 mx-auto px-5'))        
 
     # Provides a date widget to the form 
     booking_date = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date', 'value': datetime.date.today}), required=False)
-    booking_time = forms.ChoiceField(choices=TIME_SLOTS, initial=["8:00 - 8:30",], required=False)
-    tables_booked = forms.MultipleChoiceField(choices=TABLE_SIZE, widget=CheckboxSelectMultiple(), required=False)
+    booking_time = forms.ChoiceField(choices=TIME_SLOTS, required=False)
+    table_size = forms.ChoiceField(choices=TABLE_SIZE, required=False)
     additional_info = forms.CharField(max_length=400, widget=SummernoteWidget(), required=False)
 
 
     # Provides a model to pull the fields from
     class Meta:
         model = Booking
-        fields = ['booking_date', 'booking_time', 'tables_booked', 'additional_info']
+        fields = ['booking_date', 'booking_time', 'table_size', 'additional_info']
 
 
     # Prevents booking dates in the past
