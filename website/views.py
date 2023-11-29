@@ -29,7 +29,7 @@ def booking_form(request):
         if form.is_valid():
             booking = form.save(commit=False)
             customer_data = UserProfile.objects.all()
-            booking.customer = customer_data
+            booking.user = customer_data
             booking.save(commit=True)
             messages.success(request, 'Thank you! Your booking has been saved! You can access it through "My Bookings" page.')
             return redirect('home')
@@ -57,22 +57,30 @@ def user_profile(request):
 @login_required
 def edit_profile(request):
 
-    user = get_object_or_404(User, id=request.user.id)
     template_name = 'edit-profile.html'
+    customer_data = UserProfile.objects.all()
 
     if request.method == 'POST':
-        form = ProfileForm(request.POST, instance=request.user)
+        form = ProfileForm(request.POST, instance=request.user.userprofile)
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.user = user
-            instance.save(commit=True)
+            instance.customer_data = customer_data
+            instance.save()
             messages.success(request, 'Thank you! Your profile has been updated!')
             return redirect('profile')
         else:
             messages.error(request, form.errors)
             return redirect('profile')
     else:
-        form = ProfileForm()
+        profile = get_object_or_404(UserProfile, user=request.user)
+        initial_data = {}
+        if profile.user:
+            form = ProfileForm(initial={
+                    'first_name': profile.first_name,                    
+                    'last_name': profile.last_name,
+                    'phone_number': profile.phone_number,
+                    'email': request.user.email,                    
+                })
 
     return render(request, template_name, {'form': form})
 
