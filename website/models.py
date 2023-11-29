@@ -35,21 +35,16 @@ class UserProfile(models.Model):
     Extends base User model
     """
 
-    customer = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=17)
     email = models.EmailField(max_length=300)
 
     def __str__(self):
-        if self.customer:
+        if self.user:
             return self.phone_number
 
-
-    def create_user_profile(sender, instance, created, **kwargs):
-        if created:
-            UserProfile.objects.create(user=instance)
-            post_save.connect(create_user_profile, sender=User)
 
 
 # Booking model for reservations
