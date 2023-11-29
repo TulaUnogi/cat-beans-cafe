@@ -28,9 +28,9 @@ def booking_form(request):
         
         if form.is_valid():
             booking = form.save(commit=False)
-            customer_data = UserProfile.objects.all()
-            booking.user = customer_data
-            booking.save(commit=True)
+            customer_data = get_object_or_404(UserProfile, user=request.user)
+            booking.booking_customer = customer_data
+            booking.save()
             messages.success(request, 'Thank you! Your booking has been saved! You can access it through "My Bookings" page.')
             return redirect('home')
         else:
