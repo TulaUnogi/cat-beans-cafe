@@ -77,6 +77,91 @@
                     </div>
                 </div>
             </div>
+            <!-- Booking section -->            
+            <div class="row-fluid d-flex justify-content-center">
+                <div class="col-lg-7 text-center bg-gradient border-shadow rounded p-5 m-5">
+                    <h2 class="display-5 m-5 font-brown">Your Bookings:</h2>
+
+                    {% if booking %}
+
+                        {% for reservation in booking %}
+
+                            <ul class="list-unstyled">
+                                <li class="row border-bottom">
+                                    <div class="col-md-6 lead">
+                                        <strong class="float-lg-start">Booking Date: </strong>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <em class="float-lg-end">{{booking.booking_date}}</em> 
+                                    </div>
+                                </li>
+                                <li class="row border-bottom">
+                                    <div class="col-md-6 lead">
+                                        <strong class="float-lg-start">Booking Time: </strong>
+                                    </div> 
+                                    <div class="col-md-6">
+                                        <em class="float-lg-end">{{booking.booking_time}}</em>
+                                    </div>
+                                </li>
+                                <li class="row border-bottom">
+                                    <div class="col-md-6 lead">
+                                        <strong class="float-lg-start">Tables Booked: </strong>
+                                    </div> 
+                                    <div class="col-md-6">
+                                        <em class="float-lg-end">{{ booking.tables_booked }}</em>
+                                    </div>
+                                </li>
+                                <li class="row border-bottom">
+                                    <div class="col-md-6 lead">
+                                        <strong class=" float-lg-start">Phone number: </strong> 
+                                    </div>
+                                    <div class="col-md-6">
+                                        <em class="float-lg-end">{{ booking.phone_number }}</em>
+                                    </div>
+                                </li>
+                                <li class="row border-bottom">
+                                    <div class="col-md-6 lead">
+                                        <strong class=" float-lg-start">Additional Info: </strong> 
+                                    </div>
+                                    <div class="col-md-6">
+                                        <em class="float-lg-end">{{ booking.additional_info }}</em>
+                                    </div>
+                                </li>
+                                <li class="row border-bottom">
+                                    <div class="col-md-6 lead">
+                                        <strong class=" float-lg-start">Confirmation status: </strong> 
+                                    </div>
+                                    <div class="col-md-6">
+                                        <em class="float-lg-end">{{ booking.is_confirmed }}</em>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        {% endfor %}
+                
+                        <div class="row-fluid d-flex justify-content-center">
+                            <div class="col-lg-3 m-4">
+                                <a href="{% url 'editprofile' %}" aria-label="edit profile">
+                                    <button type="button" class="btn btn-secondary btn-brown px-5">Edit</button>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 m-4">
+                                <a href="{% url 'deleteaccount' %}">
+                                    <button type="button" class="btn btn-secondary btn-danger px-5">Delete</button>
+                                </a>
+                            </div>
+                        </div>
+                        {% else %}
+
+                        <p class="lead emphasised font-brown">You have no bookings yet.</p>
+                        <p class="lead emphasised font-brown">
+                            <a href="{% url 'booking' %}" class="font-brown text-decoration-underline"><strong>Click here</strong></a> 
+                            to make your reservation.</p>
+
+                    {% endif %}
+
+                </div>
+            </div>
 
         {% else %}
             <div class="row-fluid d-flex justify-content-center">
