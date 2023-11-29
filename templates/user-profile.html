@@ -70,9 +70,35 @@
                             </a>
                         </div>
                         <div class="col-lg-3 m-4">
-                            <a href="{% url 'deleteaccount' %}">
-                                <button type="submit" class="btn btn-secondary btn-danger px-5">Delete</button>
-                            </a>
+                            
+                                
+                            <!-- Button triggering confirmation modal -->
+                            <button type="button" class="btn btn-secondary btn-danger px-5" data-bs-toggle="modal" data-bs-target="#delete">Delete</button>
+                            <!-- Modal -->
+                            <div class="modal fade modal-no-margin" id="delete" tabindex="-1" aria-labelledby="DeleteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-fullscreen modal-no-margin">
+                                    <div class="modal-content bg-trans-brown col modal-no-margin">
+                                        <div class="modal-header">
+                                            <h2 class="display-4 m-5 font-brown" id="catsModalLabel">Confirm your choice!</h1>                                
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <h2 class="display-4 m-5 font-white" id="catsModalLabel">Are you sure?</h2>
+                                            <p class="font-white emphasised m-5">If you delete your account you will loose access to 
+                                                <strong>both</strong> your profile <strong>and</strong> your bookings!
+                                            </p>
+                                            <div class="d-flex flex-md-row flex-sm-column-reverse justify-content-center">
+                                                <a href="{% url 'deleteaccount' %}">
+                                                    <button type="button" class="btn btn-secondary btn-danger px-3 uppercase m-5">Yes, delete!</button>
+                                                </a>
+                                                    
+                                                <button type="button" class="btn btn-secondary btn-brown m-5" data-bs-dismiss="modal">No, cancel!</button>
+                                            </div>
+                                            
+                                        </div>                        
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
                     </div>
                 </div>
