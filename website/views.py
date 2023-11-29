@@ -34,7 +34,7 @@ def booking_form(request):
             messages.success(request, 'Thank you! Your booking has been saved! You can access it through "My Bookings" page.')
             return redirect('home')
         else:
-            messages.error(request, 'Please make sure to fill up all the necessary fields!')
+            messages.error(request, form.errors)
             return redirect(booking_form)
 
     return render(
@@ -69,7 +69,7 @@ def edit_profile(request):
             messages.success(request, 'Thank you! Your profile has been updated!')
             return redirect('profile')
         else:
-            messages.error(request, 'Make sure you filled up all the required fields properly!')
+            messages.error(request, form.errors)
             return redirect('profile')
     else:
         form = ProfileForm()
