@@ -43,8 +43,7 @@ class UserProfile(models.Model):
 
     def __str__(self):
         if self.user:
-            return self.phone_number
-
+            return self.email
 
 
 # Booking model for reservations
