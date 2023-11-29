@@ -30,7 +30,7 @@
             </div>
             <div class="row-fluid d-flex justify-content-center">
                 <div class="col-lg-7 text-center d-flex justify-content-center bg-gradient border-shadow rounded p-5 m-5 lead">
-                    <form method="POST" action="{% url 'profile' %}" class="col-6">  
+                    <form method="POST" class="col-6">  
                                 
                         {% csrf_token %}
                         {% crispy form %}
