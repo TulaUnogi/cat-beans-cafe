@@ -35,7 +35,7 @@
                                 <strong class="float-lg-start">First name: </strong>
                             </div>
                             <div class="col-md-6">
-                               <em class="float-lg-end">{{user.first_name}}</em> 
+                               <em class="float-lg-end">{{user.userprofile.first_name}}</em> 
                             </div>
                         </li>
                         <li class="row border-bottom">
@@ -43,7 +43,7 @@
                                 <strong class="float-lg-start">Last name: </strong>
                             </div> 
                             <div class="col-md-6">
-                                <em class="float-lg-end">{{user.last_name}}</em>
+                                <em class="float-lg-end">{{ user.userprofile.last_name}}</em>
                             </div>
                         </li>
                         <li class="row border-bottom">
@@ -51,7 +51,7 @@
                                 <strong class="float-lg-start">Email: </strong>
                             </div> 
                             <div class="col-md-6">
-                                <em class="float-lg-end">{{ user.email }}</em>
+                                <em class="float-lg-end">{{ user.userprofile.email }}</em>
                             </div>
                         </li>
                         <li class="row border-bottom">
@@ -59,7 +59,7 @@
                                 <strong class=" float-lg-start">Phone number:</strong> 
                             </div>
                             <div class="col-md-6">
-                                <em class="float-lg-end">{{ user.phone_number }}</em>
+                                <em class="float-lg-end">{{ user.userprofile.phone_number }}</em>
                             </div>
                         </li>
                     </ul>
