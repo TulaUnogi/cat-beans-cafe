@@ -88,8 +88,10 @@ def edit_profile(request):
 def delete_account(request):
 
     user = get_object_or_404(User, id=request.user.id)
+    profile = UserProfile.objects.all()
 
     try:
+        profile.delete()
         user.delete()
         messages.success(request, 'Your account has been deleted successfully!')
         return redirect('home')
