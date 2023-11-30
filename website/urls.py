@@ -10,4 +10,5 @@ urlpatterns = [
     path('my-profile/', views.user_profile, name='profile'),
     path('edit-profile/', views.edit_profile, name='editprofile'),
     path('delete-account/', views.delete_account, name='deleteaccount'),
+    path('edit-booking/', views.edit_booking, name='editbooking'),
 ]
