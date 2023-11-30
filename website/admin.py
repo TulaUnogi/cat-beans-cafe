@@ -7,7 +7,7 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(Booking)
 class BookingAdmin(SummernoteModelAdmin):
     list_display = ('booking_customer', 'booking_date', 'booking_time', 'table_size', 
-    'additional_info', 'booked_on', 'is_confirmed',)
+    'additional_info', 'booked_on', 'is_confirmed', 'slug')
     search_fields = ('booking_customer', 'booking_date',)
     list_filter = ('booking_customer', 'booking_date', 'booking_time','booked_on', 'is_confirmed',)
     summernote_fields = ('additional_info',)
