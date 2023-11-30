@@ -43,7 +43,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    phone_number = models.CharField(max_length=17)
+    phone_number = models.IntegerField(max_length=17)
     email = models.EmailField(max_length=300)
 
     def __str__(self):

@@ -2,7 +2,7 @@ import datetime
 from django.utils.timezone import now
 from .models import UserProfile, Booking
 from django import forms
-from django.forms import ModelForm, CheckboxSelectMultiple, TextInput
+from django.forms import ModelForm, CheckboxSelectMultiple, TextInput, NumberInput
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from django.urls import reverse
@@ -67,7 +67,7 @@ class ProfileForm(ModelForm):
         
         first_name = forms.CharField(required=True, max_length=50, widget=TextInput(attrs={'autocomplete': 'given-name',}))
         last_name = forms.CharField(required=True, max_length=50, widget=TextInput(attrs={'autocomplete': 'family-name',}))
-        phone_number = forms.CharField(required=True, max_length=17, widget=TextInput(attrs={'autocomplete': 'tel',}))
+        phone_number = forms.IntegerField(required=True, widget=NumberInput(attrs={'autocomplete': 'tel',}))
         email = forms.EmailField(required=True, max_length=300, widget=TextInput(attrs={'autocomplete': 'email',}))
 
     def profile_data(self, request, user):
