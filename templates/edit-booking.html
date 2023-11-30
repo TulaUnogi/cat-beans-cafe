@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load crispy_forms_filters %} 
+{% load crispy_forms_tags %}
+
+{% block extrahead %}
+
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+{%endblock%}
+
+{% block content %}
+
+    <section class="container-fluid">
+        <div class="row rounded d-flex justify-content-center">
+            <div class="hero-image col-lg-7 rounded d-flex align-items-center justify-content-center">                
+                <h3 class="display-6 jumbotron-fluid text-center font-white">Why not enjoy your coffee with some biscuits?</h3>
+            </div>
+        </div>
+
+        {% if user.is_authenticated %}
+
+            <div class="row-fluid d-flex justify-content-center">
+                <div class="col-lg-7 text-center">
+                    <h1 class="display-4 m-5 text-capitalize font-brown">Edit Booking</h1>
+                    <p class="emphasised">Edit your booking details here!</p>
+                </div>
+            </div>
+            <div class="row-fluid d-flex justify-content-center">
+                <div class="col-lg-7 text-center d-flex justify-content-center bg-gradient border-shadow rounded p-5 m-5 lead">
+                    <form method="POST" class="col-6">  
+                                
+                        {% csrf_token %}
+                        {% crispy form %}
+
+                    </form>
+                </div>
+            </div>
+
+        {% endif %}
+
+    </section>
+
+{%endblock%}
