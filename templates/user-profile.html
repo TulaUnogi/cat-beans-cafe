@@ -109,66 +109,67 @@
                     <h2 class="display-5 m-5 font-brown">Your Bookings:</h2>
                     
                     {% if booking_customer.id == userprofile.id %}
-                    
-                        {% for booking in bookings %}
+                        
+                        {% if bookings %}
+                            {% for booking in bookings %}
 
-                            <ul class="list-unstyled">
-                                <li class="row border-bottom">
-                                    <div class="col-md-6 lead">
-                                        <strong class="float-lg-start">Booking Date: </strong>
+                                <ul class="list-unstyled">
+                                    <li class="row border-bottom">
+                                        <div class="col-md-6 lead">
+                                            <strong class="float-lg-start">Booking Date: </strong>
+                                        </div>
+                                        <div class="col-md-6">
+                                        <em class="float-lg-end">{{booking.booking_date}}</em> 
+                                        </div>
+                                    </li>
+                                    <li class="row border-bottom">
+                                        <div class="col-md-6 lead">
+                                            <strong class="float-lg-start">Booking Time: </strong>
+                                        </div> 
+                                        <div class="col-md-6">
+                                            <em class="float-lg-end">{{booking.booking_time}}</em>
+                                        </div>
+                                    </li>
+                                    <li class="row border-bottom">
+                                        <div class="col-md-6 lead">
+                                            <strong class="float-lg-start">Tables Booked: </strong>
+                                        </div> 
+                                        <div class="col-md-6">
+                                            <em class="float-lg-end">{{ booking.table_size }}</em>
+                                        </div>
+                                    </li>                                
+                                    <li class="row border-bottom">
+                                        <div class="col-md-6 lead">
+                                            <strong class=" float-lg-start">Additional Info: </strong> 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <em class="float-lg-end">{{ booking.additional_info }}</em>
+                                        </div>
+                                    </li>
+                                    <li class="row border-bottom">
+                                        <div class="col-md-6 lead">
+                                            <strong class=" float-lg-start">Confirmation status: </strong> 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <em class="float-lg-end">{{ booking.is_confirmed }}</em>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="row-fluid d-flex justify-content-center">
+                                    <div class="col-lg-3 m-4">
+                                        <a href="{% url 'editbooking' %}" aria-label="edit booking">
+                                            <button type="button" class="btn btn-secondary btn-brown px-5">Edit</button>
+                                        </a>
                                     </div>
-                                    <div class="col-md-6">
-                                    <em class="float-lg-end">{{booking.booking_date}}</em> 
+                                    <div class="col-lg-3 m-4">
+                                        <a href="{% url 'deletebooking' %}">
+                                            <button type="button" class="btn btn-secondary btn-danger px-5">Cancel</button>
+                                        </a>
                                     </div>
-                                </li>
-                                <li class="row border-bottom">
-                                    <div class="col-md-6 lead">
-                                        <strong class="float-lg-start">Booking Time: </strong>
-                                    </div> 
-                                    <div class="col-md-6">
-                                        <em class="float-lg-end">{{booking.booking_time}}</em>
-                                    </div>
-                                </li>
-                                <li class="row border-bottom">
-                                    <div class="col-md-6 lead">
-                                        <strong class="float-lg-start">Tables Booked: </strong>
-                                    </div> 
-                                    <div class="col-md-6">
-                                        <em class="float-lg-end">{{ booking.table_size }}</em>
-                                    </div>
-                                </li>                                
-                                <li class="row border-bottom">
-                                    <div class="col-md-6 lead">
-                                        <strong class=" float-lg-start">Additional Info: </strong> 
-                                    </div>
-                                    <div class="col-md-6">
-                                        <em class="float-lg-end">{{ booking.additional_info }}</em>
-                                    </div>
-                                </li>
-                                <li class="row border-bottom">
-                                    <div class="col-md-6 lead">
-                                        <strong class=" float-lg-start">Confirmation status: </strong> 
-                                    </div>
-                                    <div class="col-md-6">
-                                        <em class="float-lg-end">{{ booking.is_confirmed }}</em>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="row-fluid d-flex justify-content-center">
-                                <div class="col-lg-3 m-4">
-                                    <a href="{% url 'editbooking' %}" aria-label="edit booking">
-                                        <button type="button" class="btn btn-secondary btn-brown px-5">Edit</button>
-                                    </a>
                                 </div>
-                                <div class="col-lg-3 m-4">
-                                    <a href="{% url 'deletebooking' %}">
-                                        <button type="button" class="btn btn-secondary btn-danger px-5">Cancel</button>
-                                    </a>
-                                </div>
-                            </div>
-                            <hr class="border-shadow">
+                                <hr class="border-shadow">
                             
-                        {% endfor %}
+                            {% endfor %}
                 
                         {% else %}
 
@@ -182,17 +183,20 @@
                 </div>
             </div>
 
-        {% else %}
-            <div class="row-fluid d-flex justify-content-center">
-                <div class="col-lg-7 text-center">
-                    <h1 class="display-4 m-5">Please Log in</h1>
-                    <p>
-                        To access this page you need to <a href="{% url 'account_login' %}" aria-label="Log in">log in</a> first.
-                    </p>
-                    <p>If you don't have an account yet please <a href="{% url 'signup' %}" aria-label="Sign up">sign up</a>!</p>
+            {% else %}
+
+                <div class="row-fluid d-flex justify-content-center">
+                    <div class="col-lg-7 text-center">
+                        <h1 class="display-4 m-5">Please Log in</h1>
+                        <p>
+                            To access this page you need to <a href="{% url 'account_login' %}" aria-label="Log in">log in</a> first.
+                        </p>
+                        <p>If you don't have an account yet please <a href="{% url 'signup' %}" aria-label="Sign up">sign up</a>!</p>
+                    </div>
                 </div>
-            </div>
-        
+                
+            {% endif %}
+
         {% endif %}
             
     </section>
