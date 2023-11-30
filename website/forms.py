@@ -8,7 +8,7 @@ from crispy_forms.layout import Submit
 from django.urls import reverse
 from django_summernote.widgets import SummernoteWidget
 from .models import TABLE_SIZE, TIME_SLOTS
-
+from autoslug import AutoSlugField
 
 class BookingForm(ModelForm):
     """ 
@@ -30,13 +30,16 @@ class BookingForm(ModelForm):
     table_size = forms.ChoiceField(choices=TABLE_SIZE, required=False)
     additional_info = forms.CharField(max_length=400, widget=SummernoteWidget(), required=False)
     booked_on = forms.DateTimeField(initial=datetime.datetime.now, widget=forms.HiddenInput(), required = False)
+    slug = AutoSlugField(max_length=70, unique=True, populate_from=lambda instance: instance.title,
+                         unique_with=['booked_on', 'booking_date'],
+                         slugify=lambda value: value.replace(' ','-')) 
 
 
     # Provides a model to pull the fields from
     class Meta:
         model = Booking
         fields = ['booking_date', 'booking_time', 'table_size', 'additional_info']
-        read_only = ['booked_on',]
+        read_only = ['booked_on', 'slug']
 
 
     # Prevents booking dates in the past
