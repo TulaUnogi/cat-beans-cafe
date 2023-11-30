@@ -1,4 +1,5 @@
 import datetime
+from django.utils.timezone import now
 from .models import UserProfile, Booking
 from django import forms
 from django.forms import ModelForm, CheckboxSelectMultiple, TextInput
@@ -28,12 +29,14 @@ class BookingForm(ModelForm):
     booking_time = forms.ChoiceField(choices=TIME_SLOTS, required=False)
     table_size = forms.ChoiceField(choices=TABLE_SIZE, required=False)
     additional_info = forms.CharField(max_length=400, widget=SummernoteWidget(), required=False)
+    booked_on = forms.DateTimeField(initial=datetime.datetime.now, widget=forms.HiddenInput(), required = False)
 
 
     # Provides a model to pull the fields from
     class Meta:
         model = Booking
         fields = ['booking_date', 'booking_time', 'table_size', 'additional_info']
+        read_only = ['booked_on',]
 
 
     # Prevents booking dates in the past
