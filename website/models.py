@@ -3,6 +3,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.core.exceptions import ValidationError
+from autoslug import AutoSlugField
+from django.urls import reverse
+
 
 
 CONFIRMATION = (
@@ -41,9 +44,9 @@ class UserProfile(models.Model):
     """
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    phone_number = models.IntegerField()
+    first_name = models.CharField(null=True, max_length=50)
+    last_name = models.CharField(null=True, max_length=50)
+    phone_number = models.IntegerField(null=True)
     email = models.EmailField(max_length=300)
 
     def __str__(self):
@@ -60,7 +63,8 @@ class Booking(models.Model):
     table_size = models.CharField(choices=TABLE_SIZE, default='1', max_length=50)
     additional_info = models.TextField(max_length=400, null=True, blank=True)
     booked_on = models.DateTimeField(auto_now_add=True)
-    is_confirmed = models.CharField(choices=CONFIRMATION, default='Awaiting confirmation', max_length=50)          
+    is_confirmed = models.CharField(choices=CONFIRMATION, default='Awaiting confirmation', max_length=50)
+    slug = AutoSlugField(max_length=70, unique=True, null=True)
 
 
     class Meta:
@@ -70,3 +74,4 @@ class Booking(models.Model):
     def __str__(self):
 
         return f'Booking for {self.booking_date} at {self.booking_time} was booked on {self.booked_on} and currently has a status: {self.is_confirmed}'
+
