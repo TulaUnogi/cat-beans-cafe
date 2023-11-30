@@ -5,8 +5,13 @@ from cloudinary.models import CloudinaryField
 from django.core.exceptions import ValidationError
 
 
-CONFIRMATION = (('0', 'Awaiting confirmation'), ('1', 'Booking confirmed'), ('2', 'Booking declined'))
+CONFIRMATION = (
+    ('Awaiting confirmation', 'Awaiting confirmation'),
+    ('Booking confirmed', 'Booking confirmed'), 
+    ('Booking declined', 'Booking declined'),
+)
 TABLE_SIZE = (('1', 'Single window seat'), ('2', 'Small- 2 seats'), ('4', 'Medium- 4 seats'), ('6', 'Large- 6 seats'))
+
 TIME_SLOTS = (
     ('8:00 - 8:30', '8:00 - 8:30'),
     ('8:30 - 9:00', '8:30 - 9:00'),
@@ -55,7 +60,7 @@ class Booking(models.Model):
     table_size = models.CharField(choices=TABLE_SIZE, default='1', max_length=50)
     additional_info = models.TextField(max_length=400, null=True, blank=True)
     booked_on = models.DateTimeField(auto_now_add=True)
-    is_confirmed = models.CharField(choices=CONFIRMATION, default='0', max_length=50)          
+    is_confirmed = models.CharField(choices=CONFIRMATION, default='Awaiting confirmation', max_length=50)          
 
 
     class Meta:
@@ -64,4 +69,4 @@ class Booking(models.Model):
 
     def __str__(self):
 
-        return f'Booking for {self.booking_date} at {self.booking_time} was booked on {booked_on} and currently has a status: {self.is_confirmed}'
+        return f'Booking for {self.booking_date} at {self.booking_time} was booked on {self.booked_on} and currently has a status: {self.is_confirmed}'
