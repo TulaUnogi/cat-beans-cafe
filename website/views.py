@@ -46,7 +46,7 @@ def booking_form(request):
 def user_profile(request):
     
     customer_data = UserProfile.objects.all()
-    my_bookings = Booking.objects.all()
+    my_bookings = Booking.objects.filter(booking_customer=request.user.userprofile)
 
     template_name = 'user-profile.html'
 

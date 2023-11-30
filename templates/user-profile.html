@@ -107,10 +107,10 @@
             <div class="row-fluid d-flex justify-content-center">
                 <div class="col-lg-7 text-center bg-gradient border-shadow rounded p-5 m-5">
                     <h2 class="display-5 m-5 font-brown">Your Bookings:</h2>
-
-                    {% if booking %}
-
-                        {% for reservation in booking %}
+                    
+                    {% if booking_customer.id == userprofile.id %}
+                    
+                        {% for booking in bookings %}
 
                             <ul class="list-unstyled">
                                 <li class="row border-bottom">
@@ -162,21 +162,22 @@
                                     </div>
                                 </li>
                             </ul>
-
+                            <div class="row-fluid d-flex justify-content-center">
+                                <div class="col-lg-3 m-4">
+                                    <a href="{% url 'editprofile' %}" aria-label="edit profile">
+                                        <button type="button" class="btn btn-secondary btn-brown px-5">Edit</button>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 m-4">
+                                    <a href="{% url 'deleteaccount' %}">
+                                        <button type="button" class="btn btn-secondary btn-danger px-5">Delete</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <hr class="border-shadow">
+                            
                         {% endfor %}
                 
-                        <div class="row-fluid d-flex justify-content-center">
-                            <div class="col-lg-3 m-4">
-                                <a href="{% url 'editprofile' %}" aria-label="edit profile">
-                                    <button type="button" class="btn btn-secondary btn-brown px-5">Edit</button>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 m-4">
-                                <a href="{% url 'deleteaccount' %}">
-                                    <button type="button" class="btn btn-secondary btn-danger px-5">Delete</button>
-                                </a>
-                            </div>
-                        </div>
                         {% else %}
 
                         <p class="lead emphasised font-brown">You have no bookings yet.</p>
