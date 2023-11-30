@@ -49,7 +49,10 @@
 | Key | Name | Field |
 |--|--|--|
 | PrimaryKey | customer | OnetoOneField  |
+| x | first_name | Charfield |
+| x | last_name | Charfield |
 | x | phone_number | Charfield |
+| x | email | Emailfield |
 
 ---
 
@@ -59,8 +62,8 @@
 |--|--|--|
 | ForeignKey | booking_customer | ForeignKey  |
 | x | booking_date | DateField |
-| x | booking_time | IntegerField |
-| x | tables_booked | IntegerField |
+| x | booking_time | CharField |
+| x | tables_booked | CharField |
 | x | additional_info  | TextField |
 | x | booked_on | DateTimeField |
 | x | is_confirmed | IntegerField |
