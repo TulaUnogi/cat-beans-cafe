@@ -8,28 +8,23 @@
     {% trans "Sign Out" %}
 {% endblock head_title %}
 {% block content %}
-    <div class="row bg-trans-white float-lg-start index-section font-white">
-        <div class="col-lg-7 mb-3">
-            <h1 class="font-brown mb-3 display-3">
+    <div class="row bg-trans-white index-section font-white">
+        <div class="col-lg-12 col-sm-1 mb-3 d-flex flex-column justify-content-center">
+            <h2 class="font-brown mb-3 display-3 text-center">
                 {% trans "Sign Out" %}
-            </h1>
-            <p class="font-brown lead m-5">{% trans 'Are you sure you want to sign out?' %}</p>
+            </h2>
+            <p class="font-brown lead mt-5">{% trans 'Are you sure you want to sign out?' %}</p>
             {% url 'account_logout' as action_url %}
-            {% element form method="post" action=action_url no_visible_fields=True %}
-                {% slot body %}
-                    {% csrf_token %}
-                    {% if redirect_field_value %}
-                        <input type="hidden"
-                            name="{{ redirect_field_name }}"
-                            value="{{ redirect_field_value }}" />
-                    {% endif %}
-                {% endslot %}
-                {% slot actions %}
-                    {% element button type="submit" %}
-                        {% trans 'Sign Out' %}
-                    {% endelement %}
-                {% endslot %}
-            {% endelement %}
+            <form method="post" action="/accounts/logout/" class="d-flex flex-column justify-content-center">
+            
+                {% csrf_token %}
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+                {% endif %}
+                        
+                    <button type="submit" class="btn btn-secondary btn-brown m-5">Sign Out</button>       
+                
+            </form>
         </div>
     </div>
 {% endblock content %}
