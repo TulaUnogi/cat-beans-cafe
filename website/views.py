@@ -23,13 +23,16 @@ def booking_form(request):
 
     template_name = 'booking-form.html'
     form = BookingForm(data=request.POST)
+    slug = form.slug
 
     if request.method == 'POST':        
         
         if form.is_valid():
+            
             booking = form.save(commit=False)
             customer_data = get_object_or_404(UserProfile, user=request.user)
             booking.booking_customer = customer_data
+            booking_id = booking.id
             booking.save()
             messages.success(request, 'Thank you! Your booking has been saved! You can access it through "My Bookings" page.')
             return redirect('home')
@@ -41,6 +44,42 @@ def booking_form(request):
                 request, template_name, {'form': form},
                 )
 
+
+@login_required
+def edit_booking(request):       
+    
+    template_name = 'edit-profile.html'
+    my_bookings = Booking.objects.filter(booking_customer=request.user.userprofile)
+    customer_data = UserProfile.objects.all()
+    booking = get_object_or_404(my_bookings)
+
+    if request.user.is_authenticated:
+        booking = get_object_or_404(Booking, id=booking_id)
+        if request.method == 'POST':
+            form = BookingForm(request.POST, instance=booking)
+            
+            if form.is_valid():
+                instance = form.save(commit=False)
+                instance.customer_data = customer_data
+                instance.save()
+                messages.success(request, 'Thank you! Your profile has been updated!')
+            else:
+                return messages.error(request, form.errors)
+
+    else:
+        initial_data = {}
+        form = BookingForm(initial={
+                'booking_date': booking.booking_date,
+                'booking_time': booking.booking_time,
+                'table_size': booking.table_size,
+                'additional_info': booking.additional_info,                    
+            })
+    return render(request, template_name, {'form': form})
+
+
+@login_required
+def delete_booking(request):
+    pass
             
 @login_required
 def user_profile(request):
@@ -53,6 +92,7 @@ def user_profile(request):
     return render(
                 request, template_name, {'profile': customer_data, 'bookings': my_bookings}
                 )
+
 
 @login_required
 def edit_profile(request):
