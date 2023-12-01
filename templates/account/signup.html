@@ -15,9 +15,9 @@
     {% trans "Signup" %}
 {% endblock head_title %}
 {% block content %}
-    <div class="row bg-trans-white float-lg-start index-section font-white">
-        <div class="col-lg-7 mb-3">
-            <h1 class="font-brown mb-3 display-3">
+    <div class="row bg-trans-white float-lg-start index-section font-white ">
+        <div class="col-lg-7 mb-5">
+            <h1 class="font-brown mb-3 display-4">
                 {% trans "Sign Up" %}
             </h1>
             <p class="comment-text lead">
@@ -33,14 +33,10 @@
                             name="{{ redirect_field_name }}"
                             value="{{ redirect_field_value }}" />
                     {% endif %}
+                    <button type="submit" class="btn btn-secondary btn-brown mt-5 px-4">Sign Up</button>
                 {% endslot %}
-                {% slot actions %}
-                    {% element button tags="prominent,signup" type="submit" %}
-                        {% trans "Sign Up" %}
-                    {% endelement %}
-                {% endslot %}
+                
             {% endelement %}
-            {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
         </div>
     </div>
 {% endblock content %}
