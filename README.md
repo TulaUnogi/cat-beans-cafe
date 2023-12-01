@@ -251,6 +251,68 @@ The User Stories include the acceptance criteria and are broken down into smalle
 
 # Testing
 
+### Responsiveness
+
+I was testing for responsiveness on an Ideapad laptop and a Samsung Galaxy A5 using the most up to date versions of Google Chrome, Mozilla Firefox and Opera versions.
+
+
+### Manual testing
+
+#### Account Registration Tests
+| Test |Result  |
+|--|--|
+| User can create profile | Pass |
+| User can log into profile| Pass|
+|User can log out of profile|Pass|
+
+---
+
+#### User Navigation Tests
+
+| Test | Result  |
+|--|--|
+| User can easily navigate to Bookings | Pass |
+| User can access About Us page| Pass|
+| User access their account page|Pass|
+| User can access the card content in About Us|Pass|
+| SuperUser can access admin page|Pass|
+
+---
+
+#### Account Authorisation Tests
+
+| Test | Result  |
+|--|--|
+| Only Superuser can access admin page |Pass|
+| Non authorised user book a table | Pass |
+| Non authorised user won't access profile page| Pass|
+
+
+
+---
+
+#### Booking and Profile Tests
+
+| Test |Result  |
+|--|--|
+|User can make a booking | Pass |
+|User can view all of their bookings |Pass|
+|User can edit booking |Pass/Fail (explained in bugs)|
+|User can make more than one booking|Pass|
+|User can delete their account |Pass|
+|User can edit their information |Pass|
+|User can see the confirmation information |Pass|
+
+
+
+#### Admin Tests
+
+| Test |Result  |
+|--|--|
+
+|Items display correctly on front-end when updated / added |Pass|
+|Admin can confirm or decline bookings |Pass|
+
 ##### [ Back to Top ](#table-of-contents)
 
 ---
