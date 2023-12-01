@@ -67,6 +67,7 @@
 | x | additional_info  | TextField |
 | x | booked_on | DateTimeField |
 | x | is_confirmed | IntegerField |
+| x | slug | AutoSlugField |
 
 ---
 
