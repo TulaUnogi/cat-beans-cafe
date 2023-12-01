@@ -1,42 +1,61 @@
 {% extends "base.html" %}
+
 {% load static %}
+
+{% load i18n %}
+
+{% load allauth account socialaccount %}
+
+{% load crispy_forms_filters %} 
+{% load crispy_forms_tags %}
+
 {% block extrahead %}
 <link rel="stylesheet" href="{% static 'css/forms.css' %}">
 {% endblock %}
-{% load i18n %}
-{% load allauth account socialaccount %}
+
 {% block head_title %}
+
     {% trans "Sign In" %}
+
 {% endblock head_title %}
+
 {% block content %}
+
 <div class="row bg-trans-white float-lg-start index-section font-white">
-    <div class="col-lg-7 mb-3">
+    <div class="col-lg-7 mb-3 d-flex flex-column align-items-sm-center align-items-lg-start">
         <h1 class="font-brown mb-3 display-3">
+
             {% trans "Sign In" %}
+
         </h1>
         <p class="comment-text lead">
-            {% blocktrans %}If you have not created an account yet, then please
-            <a href="{{ signup_url }}" class="font-white">sign up</a> first.{% endblocktrans %}
+
+            {% blocktrans %}
+                If you have not created an account yet, then please
+                    <a href="{{ signup_url }}" class="font-white">sign up</a> first.
+            {% endblocktrans %}
         </p>
         {% url 'account_login' as login_url %}
-        {% element form form=form method="post" action=login_url tags="entrance,login" %}
-            {% slot body %}
-                {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
-                {% endelement %}
-                {% if redirect_field_value %}
-                    <input type="hidden"
-                        name="{{ redirect_field_name }}"
-                        value="{{ redirect_field_value }}" />
-                {% endif %}
-            {% endslot %}
-            {% slot actions %}
-                {% element button type="submit" tags="prominent,login" %}
-                    {% trans "Sign In" %}
-                {% endelement %}
-            {% endslot %}
-        {% endelement %}
-        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+        <form method="post" action="/accounts/login/">
+            
+            {% csrf_token %}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+            {% endif %}
+                <label for="id_login" class="form-label">Username:</label>
+                <input class="form-control" type="text" name="login" placeholder="Username" autocomplete="username" maxlength="150" required="" id="id_login">
+            </p>
+            <p>
+                <label for="id_password" class="form-label">Password:</label>
+                <input class="form-control" type="password" name="password" placeholder="Password" autocomplete="current-password" required="" id="id_password">
+                <span class="helptext"><a href="/accounts/password/reset/">Forgot your password?</a></span>
+            </p>
+            <p>
+                <label class="form-check-label" for="id_remember">Remember Me:</label>
+                <input class="form-check-input" type="checkbox" name="remember" id="id_remember">
+            </p>
+            <button class="btn btn-secondary btn-brown m-5 align-self-center" type="submit">Sign In</button>
+        </form>
     </div>
 </div>
 {% endblock content %}

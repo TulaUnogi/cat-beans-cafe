@@ -9,13 +9,13 @@
 {% endblock head_title %}
 {% block content %}
     <div class="row bg-trans-white index-section font-white">
-        <div class="col-lg-12 col-sm-1 mb-3 d-flex flex-column justify-content-center">
+        <div class="col-lg-12 col-sm-1 mb-3 d-flex flex-column justify-content-lg-start justify-content-sm-center">
             <h2 class="font-brown mb-3 display-3 text-center">
                 {% trans "Sign Out" %}
             </h2>
             <p class="font-brown lead mt-5">{% trans 'Are you sure you want to sign out?' %}</p>
             {% url 'account_logout' as action_url %}
-            <form method="post" action="/accounts/logout/" class="d-flex flex-column justify-content-center">
+            <form method="post" action="/accounts/logout/" class="d-flex flex-column justify-content-lg-start justify-content-sm-center">
             
                 {% csrf_token %}
                 {% if redirect_field_value %}
