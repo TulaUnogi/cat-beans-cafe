@@ -257,9 +257,9 @@ The User Stories include the acceptance criteria and are broken down into smalle
  
 # Known bugs 
 
-- Currently signup page doesn't display the custom sign up form and stopped saving data
-- Forms don't get their data saved
-- Media queries and final styling not applied to all the pages yet, which results in unfinished layout at some occasions
+- Currently there's no option to edit a booking if there's more than one booking in the system
+- I observed one blue overlooked button
+- The function that was supposed to prevent booking dates in the past is not preventing anything
 
 ##### [ Back to Top ](#table-of-contents)
 
