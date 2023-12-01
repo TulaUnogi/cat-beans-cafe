@@ -231,6 +231,20 @@ The User Stories include the acceptance criteria and are broken down into smalle
 
 # Technology used 
 
+- Html - for page structure
+- CSS - for custom styling
+- Python - for the backend
+- Django - framework used to build this project
+- Jinja - templating language rendering logic within html documents
+- Bootstrap 5 - front end framework used by me alongside Django, helps with fast and efficient styling
+- Heroku PostgreSQL - used as the database
+- Font Awesome - for social media icons
+- Google Fonts- currently only for the hero image font
+- GitHub - for storing the code and for the projects Kanban
+- Heroku - for hosting and deployement of this project
+- Cloudinary - hosting the static files 
+- Git - version control tool
+
 ##### [ Back to Top ](#table-of-contents)
 
 ---
