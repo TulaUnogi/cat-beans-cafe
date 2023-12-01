@@ -180,6 +180,42 @@ The User Stories include the acceptance criteria and are broken down into smalle
 - [USER STORY: DELETING PROFILE](https://github.com/TulaUnogi/cat-beans-cafe/issues/23)
 - [USER STORY: TABLE BOOKING](https://github.com/TulaUnogi/cat-beans-cafe/issues/21)
 
+
+### Navbar and Footer:
+
+- Navbar and footer are present on every page
+- Navbar's content changes depending on user authentication, allowing access to profile and user bookings
+- Footer includes café's opening times, social links and address to provide the necessary informations in an easy way.
+
+### Index page:
+
+- The homepage provides the links to booking and about us page.
+- It can be accessed without signing in.
+
+### About us page:
+
+- Main page includes a short information about the café and set of 4 cards with pictures and description
+- Each of the card includes the button, that triggers a fullscreen modal.
+- The modals contain informations about the menu, contact details with embedded google maps, link to booking page and- in the near future- will also include the interactive gallery with cat pictures (cat carousel)
+
+### Authentication and profile management:
+
+- User can sign up to create their profile 
+- User can log in to their account and update their informations
+- User can delete their account alltogether with all their data
+- The authentication process is safe thanks to [Django-AllAuth](https://github.com/pennersr/django-allauth) and csrf tokens.
+
+### Bookings:
+
+- User can pass their data to create a booking.
+- User can currently only edit one booking due to the bug, that I, unfortunately, couldn't resolve in time (django did not recognise the booking id),
+- Currently the booking cancellation has not been implemented.
+
+### Responsiveness:
+
+- Website is responsive thanks to Bootstrap and media queries applied.
+- There's a hamburger navbar on  small devices.
+
 ##### [ Back to Top ](#table-of-contents)
 
 ---
@@ -300,6 +336,13 @@ Creating a clone enables you to make a copy of the current version of this repos
 
 # Resources
 
+- [Code Institute Full Stack Development course materials](https://codeinstitute.net/global/full-stack-software-development-diploma/?sitelink=FullStackDiploma-IRL&utm_term=code+institute&utm_campaign=CI+-+IRL+-+Search+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=14304747355&hsa_grp=128775288209&hsa_ad=635725005315&hsa_src=g&hsa_tgt=kwd-319867646331&hsa_kw=code+institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQiAgqGrBhDtARIsAM5s0_l13h8fkiqZeHnw16zshbX6svuL8YJNrw6G-RFdq03RQybQXLSoZiYaAjGqEALw_wcB) 
+- [Django documentation](https://www.djangoproject.com/)
+- [Crispy forms docs](https://django-crispy-forms.readthedocs.io/en/latest/)
+- [Bootstrap docs](https://getbootstrap.com/)
+- [Stack overflow](https://stackoverflow.com/)
+- [Slack](https://slack.com/intl/en-ie/)
+
 ##### [ Back to Top ](#table-of-contents)
 
 ---
@@ -320,6 +363,8 @@ Creating a clone enables you to make a copy of the current version of this repos
 - <b>Roger Pfäffli</b>, Code Institute Alumnus for explaining on Slack how to set up development and DEBUG variables in env.py
 - <b>[Coding Yaar](https://codingyaar.com/shorts/bootstrap-navbar-toggler-color-change/)</b> for Bootstrap navbar toggler colour change tutorial
 - <b>[May.D from Stack Overflow](https://stackoverflow.com/questions/50439356/django-date-validation-help-needed)</b> for date validation
+- <b>Tutors Jason and Oisin</b> for pointing me in the good direction and helping with understanding the code
+- <b>My mentor Narender</b> for the patience and all the help and support
 
 
 ##### [ Back to Top ](#table-of-contents)
