@@ -10,7 +10,7 @@ django-crispy-forms==2.1
 django-summernote==0.8.20.0
 gunicorn==21.2.0
 oauthlib==3.2.2
-psycopg2==2.9.9
+psycopg==3.1.13
 PyJWT==2.8.0
 python3-openid==3.2.0
 pytz==2023.3.post1
