@@ -173,4 +173,9 @@ footer {
     .social-links i {
         font-size: 3rem;
     }
+
+    iframe {
+        width: 100%;
+        overflow-x: hidden;
+    }
 }
