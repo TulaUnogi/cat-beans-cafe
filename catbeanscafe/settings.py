@@ -25,6 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 TEMPLARES_DIR = os.path.join(BASE_DIR, 'templates')
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 # Secret key
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
