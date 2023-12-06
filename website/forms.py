@@ -5,7 +5,6 @@ from django import forms
 from django.forms import ModelForm, CheckboxSelectMultiple, TextInput, NumberInput
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
-from django.urls import reverse
 from django_summernote.widgets import SummernoteWidget
 from .models import TABLE_SIZE, TIME_SLOTS
 from autoslug import AutoSlugField
