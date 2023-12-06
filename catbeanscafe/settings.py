@@ -17,8 +17,9 @@ from django.contrib.messages import constants as messages
 if os.path.isfile('env.py'):
     import env
 
-# Setting debug to false
-DEBUG = False
+
+# Setting up debug in env
+DEBUG = 'DEVELOPMENT' in os.environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
