@@ -1,7 +1,7 @@
 asgiref==3.7.2
 crispy-bootstrap5==0.7
 dj-database-url==0.5.0
-Django==4.1
+Django==3.2.23
 django-allauth==0.58.2
 django-appconf==1.0.6
 django-autoslug==1.9.9
