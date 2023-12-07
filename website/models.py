@@ -2,6 +2,7 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from autoslug import AutoSlugField
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 
@@ -43,7 +44,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(null=True, max_length=50)
     last_name = models.CharField(null=True, max_length=50)
-    phone_number = models.IntegerField(null=True)
+    phone_number = PhoneNumberField(blank=True, null=True)
     email = models.EmailField(max_length=300)
 
     def __str__(self):

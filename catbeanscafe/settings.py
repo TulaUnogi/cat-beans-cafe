@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'crispy_bootstrap5',
+    'phonenumber_field',
     'website',
 ]
 
@@ -72,6 +73,10 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = 'editprofile'
 LOGOUT_REDIRECT_URL = '/'
+
+# PhoneNumberField
+PHONENUMBER_DB_FORMAT = 'E164'
+PHONENUMBER_DEFAULT_REGION = 'IE'
 
 # Messages
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
