@@ -71,7 +71,9 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = 'editprofile'
+# Allauth redirects
+ACCOUNT_SIGNUP_REDIRECT_URL = 'editprofile'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 # PhoneNumberField
@@ -86,7 +88,15 @@ MESSAGE_TAGS = {
         messages.SUCCESS: 'alert-success',
         messages.WARNING: 'alert-warning',
         messages.ERROR: 'alert-danger',
- }
+}
+
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'width': '100%',
+        'height': '500%',
+        'toolbar': ['bold', 'italic', 'underline', 'color', 'ul', 'ol', 'picture'],
+    },
+}
 
 # Crispy forms setup
 CRISPY_TEMPLATE_PACK = ('bootstrap5')
