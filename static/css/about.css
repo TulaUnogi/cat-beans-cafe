@@ -55,6 +55,12 @@ body {
     margin: 0%!important;
 }
 
+.carousel-item img {
+    height: 50vh!important;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
 /* Borders */
 
 .border-shadow {

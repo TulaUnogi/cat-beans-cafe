@@ -102,10 +102,11 @@ text-transform: uppercase;
 
 /* Alerts */
 
-.alert{
+.alert {
     z-index: 999999;
     position: fixed;
     top: 0;
+    width: 100vw;
 }
 
 /* Navbar */
@@ -157,10 +158,6 @@ footer {
         min-width: 60vw;
         margin-bottom: 10%;
     }
-
-    .bg-trans-white {
-        width: 100vw;
-    }
 }
 
 @media (max-width: 768px) {
@@ -185,5 +182,9 @@ footer {
     iframe {
         width: 100%;
         overflow-x: hidden;
+    }
+
+    .bg-trans-white {
+        width: 100vw;
     }
 }
