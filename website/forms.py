@@ -30,9 +30,7 @@ class BookingForm(ModelForm):
     table_size = forms.ChoiceField(choices=TABLE_SIZE, required=False)
     additional_info = forms.CharField(max_length=400, widget=SummernoteWidget(), required=False)
     booked_on = forms.DateTimeField(initial=datetime.datetime.now, widget=forms.HiddenInput(), required = False)
-    slug = AutoSlugField(max_length=70, unique=True, populate_from=lambda instance: instance.title,
-                         unique_with=['booked_on', 'booking_date'],
-                         slugify=lambda value: value.replace(' ','-')) 
+    slug = AutoSlugField(max_length=70, unique=True) 
 
 
     # Provides a model to pull the fields from
