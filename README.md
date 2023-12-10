@@ -179,6 +179,7 @@ The User Stories include the acceptance criteria and are broken down into smalle
 - [USER STORY: EDITING PROFILE](https://github.com/TulaUnogi/cat-beans-cafe/issues/22)
 - [USER STORY: DELETING PROFILE](https://github.com/TulaUnogi/cat-beans-cafe/issues/23)
 - [USER STORY: TABLE BOOKING](https://github.com/TulaUnogi/cat-beans-cafe/issues/21)
+- [USER STORY: CAT CAROUSEL](https://github.com/TulaUnogi/cat-beans-cafe/issues/24)
 
 
 ### Navbar and Footer:
@@ -192,11 +193,12 @@ The User Stories include the acceptance criteria and are broken down into smalle
 - The homepage provides the links to booking and about us page.
 - It can be accessed without signing in.
 
-### About us page:
+### About Us page:
 
-- Main page includes a short information about the café and set of 4 cards with pictures and description
+- Main page includes a short information about the café and set of 4 cards with pictures and description.
 - Each of the card includes the button, that triggers a fullscreen modal.
-- The modals contain informations about the menu, contact details with embedded google maps, link to booking page and- in the near future- will also include the interactive gallery with cat pictures (cat carousel)
+- The modals contain informations about the menu, contact details with embedded google maps, link to booking page and gallery with cat pictures (cat carousel).
+- About Us page can be accessed without signing in.
 
 ### Authentication and profile management:
 
@@ -208,13 +210,13 @@ The User Stories include the acceptance criteria and are broken down into smalle
 ### Bookings:
 
 - User can pass their data to create a booking.
-- User can currently only edit one booking due to the bug, that I, unfortunately, couldn't resolve in time (django did not recognise the booking id),
-- Currently the booking cancellation has not been implemented.
+- User can edit their selected booking.
+- Currently the initial version of booking cancellation view has not been fully implemented. I decided to implement an automatic delete_booking view, that allows User to quickly remove their booking from the system.
 
 ### Responsiveness:
 
 - Website is responsive thanks to Bootstrap and media queries applied.
-- There's a hamburger navbar on  small devices.
+- There's a hamburger navbar on small devices.
 
 ##### [ Back to Top ](#table-of-contents)
 
@@ -222,8 +224,7 @@ The User Stories include the acceptance criteria and are broken down into smalle
 
 # Features Left to Implement
 
-- [USER STORY: CAT CAROUSEL](https://github.com/TulaUnogi/cat-beans-cafe/issues/24)
-- [USER STORY: BOOKING CANCELLATION](https://github.com/TulaUnogi/cat-beans-cafe/issues/27)
+- [USER STORY: BOOKING CANCELLATION](https://github.com/TulaUnogi/cat-beans-cafe/issues/27) - As I've mentioned the initial version of this model is left for now since customer can currently fully delete their booking. 
 
 ##### [ Back to Top ](#table-of-contents)
 
@@ -234,6 +235,7 @@ The User Stories include the acceptance criteria and are broken down into smalle
 - Html - for page structure
 - CSS - for custom styling
 - Python - for the backend
+- Javascript - for timeout in messages
 - Django - framework used to build this project
 - Jinja - templating language rendering logic within html documents
 - Bootstrap 5 - front end framework used by me alongside Django, helps with fast and efficient styling
@@ -253,7 +255,27 @@ The User Stories include the acceptance criteria and are broken down into smalle
 
 ### Responsiveness
 
-I was testing for responsiveness on an Ideapad laptop and a Samsung Galaxy A5 using the most up to date versions of Google Chrome, Mozilla Firefox and Opera versions.
+I was testing for responsiveness on an Ideapad laptop and a Samsung Galaxy A5 using the most up to date versions of Google Chrome, Mozilla Firefox and Opera versions. For more detailed testing I was using Google DevTools.
+
+> Index page:
+
+![Index page](static/images/readme-images/responsive-index.png)
+
+
+> About Us page:
+
+![Index page](static/images/readme-images/responsive-about.png)
+
+
+> Sign Up page:
+
+![Index page](static/images/readme-images/responsive-signup.png)
+
+
+> Sign In page:
+
+![Index page](static/images/readme-images/responsive-sign-in.png)
+
 
 
 ### Manual testing
@@ -262,8 +284,12 @@ I was testing for responsiveness on an Ideapad laptop and a Samsung Galaxy A5 us
 | Test |Result  |
 |--|--|
 | User can create profile | Pass |
-| User can log into profile| Pass|
-|User can log out of profile|Pass|
+| User can log into profile | Pass |
+| User can log out of profile | Pass |
+| Messages are displaying | Pass |
+| Messages are dismissable by button and timeout | Pass |
+
+
 
 ---
 
@@ -276,6 +302,8 @@ I was testing for responsiveness on an Ideapad laptop and a Samsung Galaxy A5 us
 | User access their account page|Pass|
 | User can access the card content in About Us|Pass|
 | SuperUser can access admin page|Pass|
+
+
 
 ---
 
@@ -296,22 +324,25 @@ I was testing for responsiveness on an Ideapad laptop and a Samsung Galaxy A5 us
 | Test |Result  |
 |--|--|
 |User can make a booking | Pass |
-|User can view all of their bookings |Pass|
-|User can edit booking |Pass/Fail (explained in bugs)|
-|User can make more than one booking|Pass|
-|User can delete their account |Pass|
-|User can edit their information |Pass|
-|User can see the confirmation information |Pass|
+|User can view all of their bookings | Pass |
+|User can delete their booking | Pass |
+|User can edit booking | Pass |
+|User can make more than one booking | Pass |
+|User can delete their account | Pass |
+|User can edit their information | Pass |
+|User can see the confirmation information | Pass |
 
 
+
+---
 
 #### Admin Tests
 
 | Test |Result  |
 |--|--|
-
 |Items display correctly on front-end when updated / added |Pass|
 |Admin can confirm or decline bookings |Pass|
+
 
 ##### [ Back to Top ](#table-of-contents)
 
@@ -319,9 +350,10 @@ I was testing for responsiveness on an Ideapad laptop and a Samsung Galaxy A5 us
  
 # Known bugs 
 
-- Currently there's no option to edit a booking if there's more than one booking in the system
-- I observed one blue overlooked button
-- The function that was supposed to prevent booking dates in the past is not preventing anything
+- I observed one blue submit button- it is automatically generated by crispy forms and somehow the form settings did not applied to this button. It's a small bug of low priority for me at the current stage.
+- There's small image clipping during the cat carousel transitions on smaller screens.
+- The function that was supposed to prevent booking dates in the past is currently preventing nothing, unfortunately... You may be brave and try to trick the system into timetravelling, but Admin will always see what day the booking was made on anyway and won't accept such a silly tricks!
+
 
 ##### [ Back to Top ](#table-of-contents)
 
@@ -415,7 +447,7 @@ Creating a clone enables you to make a copy of the current version of this repos
 - [Code Institute Full Stack Development course materials](https://codeinstitute.net/global/full-stack-software-development-diploma/?sitelink=FullStackDiploma-IRL&utm_term=code+institute&utm_campaign=CI+-+IRL+-+Search+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=14304747355&hsa_grp=128775288209&hsa_ad=635725005315&hsa_src=g&hsa_tgt=kwd-319867646331&hsa_kw=code+institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQiAgqGrBhDtARIsAM5s0_l13h8fkiqZeHnw16zshbX6svuL8YJNrw6G-RFdq03RQybQXLSoZiYaAjGqEALw_wcB) 
 - [Django documentation](https://www.djangoproject.com/)
 - [Crispy forms docs](https://django-crispy-forms.readthedocs.io/en/latest/)
-- [Bootstrap docs](https://getbootstrap.com/)
+- [Bootstrap docs](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 - [Stack overflow](https://stackoverflow.com/)
 - [Slack](https://slack.com/intl/en-ie/)
 
@@ -433,14 +465,23 @@ Creating a clone enables you to make a copy of the current version of this repos
 - [Black Steel Welcome Hanging Signage](https://www.pexels.com/photo/black-steel-welcome-hanging-signage-1406282/) by <b>Henry & Co.</b> on Pexels
 - [Menu background](https://pixabay.com/photos/coffee-mug-heart-caffeine-food-5176961/) by <b>Konrad Janik</b> on Pixabay
 
+- Cat carousel pictures:
+  1. [Fluffy black cat](https://pixabay.com/photos/couch-cat-pet-feline-animal-6654015/) by <b>Spike Summers</b> on Pixabay 
+  2. [Calico cat](https://www.pexels.com/photo/calico-cat-1359300/) by <b>Cats Coming</b> on Pexels
+  3. [Orange tabby cat](https://www.pexels.com/photo/adorable-animal-cat-close-up-208930/) by <b>Pixabay</b> on Pexels
+  4. [Cat with a mouse toy](https://www.pexels.com/photo/cat-with-a-mouse-toy-3216568/) by <b>lil artsy</b> on Pexels
+  5. [Two cosy tabby cats](https://www.pexels.com/photo/two-tabby-kittens-lying-down-1787414/) by <b>Cats Comin</b> on Pexels
+  6. [Little kitten](https://www.pexels.com/photo/close-up-photo-of-orange-tabby-cat-2581153/) by <b>samer daboul</b> on Pexels
+  7. [Christmas kitten](https://www.pexels.com/photo/close-up-photography-of-white-cat-besides-christmas-lights-735423/) by <b>Eftodii Aurelia</b> on Pexels
+
 > Code
 
 - <b>[Raymond Penners](https://github.com/pennersr)</b> for amazing Allauth and [Allauth templates](https://github.com/pennersr/django-allauth/tree/main/allauth/templates/account)
 - <b>Roger Pfäffli</b>, Code Institute Alumnus for explaining on Slack how to set up development and DEBUG variables in env.py
 - <b>[Coding Yaar](https://codingyaar.com/shorts/bootstrap-navbar-toggler-color-change/)</b> for Bootstrap navbar toggler colour change tutorial
 - <b>[May.D from Stack Overflow](https://stackoverflow.com/questions/50439356/django-date-validation-help-needed)</b> for date validation
-- <b>Tutors Jason and Oisin</b> for pointing me in the good direction and helping with understanding the code
-- <b>My mentor Narender</b> for the patience and all the help and support
-
+- <b>Tutors Jason and Oisin</b> for pointing me in the good direction and helping with understanding the code parts I've been struggling with
+- <b>My mentor Narender Singh</b> for his patience and all the help and support
+- <b>[willeM_ Van Onsem](https://stackoverflow.com/questions/77632628/init-got-an-unexpected-keyword-argument-id/77632951#77632951)</b> for helping me with fixing my edit booking class
 
 ##### [ Back to Top ](#table-of-contents)
