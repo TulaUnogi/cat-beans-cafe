@@ -20,14 +20,14 @@
         {% if user.is_authenticated %}
 
             <div class="row-fluid d-flex justify-content-center">
-                <div class="col-lg-7 text-center">
+                <div class="col-sm-12 col-lg-7 text-center">
                     <h1 class="display-4 m-5 text-capitalize font-brown">{{ user.username}}'s Profile</h1>
                     <p class="emphasised">Hello, {{ user.username}}! Thank you for signing in!</p>
                     <p class="emphasised">Here you can find and manage your profile details as well as your bookings!</p>
                 </div>
             </div>
             <div class="row-fluid d-flex justify-content-center">
-                <div class="col-lg-7 text-center bg-gradient border-shadow rounded p-5 m-5">
+                <div class="col-sm-12 col-lg-7 text-center bg-gradient border-shadow rounded p-5 my-5">
                     <h2 class="display-5 m-5 font-brown">Your Details:</h2>
                     <ul class="list-unstyled">
                         <li class="row border-bottom">
@@ -63,39 +63,39 @@
                             </div>
                         </li>
                     </ul>
-                    <div class="row-fluid d-flex justify-content-center">
-                        <div class="col-lg-3 m-4">
+                    <div class="row d-flex justify-content-center">
+                        <div class="row-sm-12 col-lg-3  m-4">
                             <a href="{% url 'editprofile' %}" aria-label="edit profile">
                                 <button type="submit" class="btn btn-secondary btn-brown px-5">Edit</button>
                             </a>
                         </div>
-                        <div class="col-lg-3 m-4">
-                            
-                                
+                        <div class="row-sm-12 col-lg-3 m-4">                                                           
                             <!-- Button triggering confirmation modal -->
-                            <button type="button" class="btn btn-secondary btn-danger px-5" data-bs-toggle="modal" data-bs-target="#delete">Delete</button>
+                            <button type="button" class="btn btn-danger px-5" data-bs-toggle="modal" data-bs-target="#delete">Delete</button>
                             <!-- Modal -->
                             <div class="modal fade modal-no-margin" id="delete" tabindex="-1" aria-labelledby="DeleteModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-fullscreen modal-no-margin">
                                     <div class="modal-content bg-trans-brown col modal-no-margin">
                                         <div class="modal-header">
-                                            <h2 class="display-4 m-5 font-brown" id="catsModalLabel">Confirm your choice!</h1>                                
+                                            <h2 class="display-4 m-5 font-brown" id="DelModalLabel">Confirm your choice!</h1>                                
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-center">
-                                            <h2 class="display-4 m-5 font-white" id="catsModalLabel">Are you sure?</h2>
+                                            <h2 class="display-4 m-5 font-white" id="DelModalLabel">Are you sure?</h2>
                                             <p class="font-white emphasised m-5">If you delete your account you will loose access to 
                                                 <strong>both</strong> your profile <strong>and</strong> your bookings!
                                             </p>
-                                            <div class="d-flex flex-md-row flex-sm-column-reverse justify-content-center">
-                                                <a href="{% url 'deleteaccount' %}">
-                                                    <button type="button" class="btn btn-secondary btn-danger px-3 uppercase m-5">Yes, delete!</button>
+                                            <div class="row d-flex justify-content-center">
+                                                <a href="{% url 'deleteaccount' %}" class="col-lg-3">
+                                                    <button type="button" class="btn btn-danger px-3 m-5">Yes, delete!</button>
                                                 </a>
-                                                    
-                                                <button type="button" class="btn btn-secondary btn-brown m-5" data-bs-dismiss="modal">No, cancel!</button>
+                                                <div class="col-lg-3">
+                                                    <button type="button" class="btn btn-secondary btn-brown m-5" data-bs-dismiss="modal">No, cancel!</button>
+                                                </div>
+                                                
                                             </div>
                                             
-                                        </div>                        
+                                        </div>
                                     </div>
                                 </div>
                             </div> 
@@ -105,7 +105,7 @@
             </div>
             <!-- Booking section -->            
             <div class="row-fluid d-flex justify-content-center">
-                <div class="col-lg-7 text-center bg-gradient border-shadow rounded p-5 m-5">
+                <div class="col-sm-12 col-lg-7 text-center bg-gradient border-shadow rounded p-5 my-5">
                     <h2 class="display-5 m-5 font-brown">Your Bookings:</h2>
                     
                     {% if booking_customer.id == userprofile.id %}
@@ -143,7 +143,7 @@
                                             <strong class=" float-lg-start">Additional Info: </strong> 
                                         </div>
                                         <div class="col-md-6">
-                                            <em class="float-lg-end">{{ booking.additional_info }}</em>
+                                            <em class="float-lg-end">{{ booking.additional_info |striptags }}</em>
                                         </div>
                                     </li>
                                     <li class="row border-bottom">
@@ -155,21 +155,51 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="row-fluid d-flex justify-content-center">
-                                    <div class="col-lg-3 m-4">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="row-sm-12 col-lg-3 m-4">
                                         <a href="{% url 'editbooking' booking.slug %}" aria-label="edit booking">
                                             <button type="button" class="btn btn-secondary btn-brown px-5">Edit</button>
                                         </a>
                                     </div>
-                                    <div class="col-lg-3 m-4">
-                                        <a href="#">
-                                            <button type="button" class="btn btn-secondary btn-danger px-5">Cancel</button>
-                                        </a>
+                                    <div class="row-sm-12 col-lg-3 m-4">
+                                        <!-- Button triggering confirmation modal -->
+                                        <button type="button" class="btn btn-danger px-5" data-bs-toggle="modal" data-bs-target="#deletebooking">Delete</button>
+                                        <!-- Modal -->
+                                        <div class="modal fade modal-no-margin" id="deletebooking" tabindex="-1" aria-labelledby="DeleteBookingModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-fullscreen modal-no-margin">
+                                                <div class="modal-content bg-trans-brown col modal-no-margin">
+                                                    <div class="modal-header">
+                                                        <h2 class="display-4 m-5 font-brown" id="DelBookingModalLabel">Confirm your choice!</h1>                                
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body text-center">
+                                                        <h2 class="display-4 m-5 font-white" id="DelBookingModalLabel">Are you sure?</h2>
+                                                        <p class="font-white emphasised m-5">
+                                                            By clicking "Yes, delete" you will cancel this booking and loose your reservation!<br>
+                                                            Would you still like to proceed?
+                                                        </p>
+                                                        <div class="row d-flex justify-content-center">
+                                                            <a href="{% url 'deletebooking' booking.slug %}" class="col-lg-3">
+                                                                <button type="button" class="btn btn-danger px-3 m-5">Yes, delete!</button>
+                                                            </a>
+                                                            <div class="col-lg-3">
+                                                                <button type="button" class="btn btn-secondary btn-brown m-5" data-bs-dismiss="modal">No, keep it!</button>
+                                                            </div>                                                            
+                                                        </div>                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
                                     </div>
                                 </div>
                                 <hr class="border-shadow">
                             
                             {% endfor %}
+                            <div class="row d-flex justify-content-center">
+                                <a href="{% url 'booking' %}" class="col-lg-4">
+                                    <button type="button" class="btn btn-secondary px-3 uppercase m-5">New booking</button>
+                                </a>
+                            </div>
                 
                         {% else %}
 

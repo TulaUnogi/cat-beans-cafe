@@ -61,7 +61,6 @@ class ProfileForm(ModelForm):
 
         # Crispy form helpers
         self.helper = FormHelper()
-        self.helper.form_class = 'brown-inputs'
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Submit'))
     
