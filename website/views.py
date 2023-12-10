@@ -20,6 +20,7 @@ def about(request, template_name="about.html"):
         request, template_name,
     )
 
+# Booking form
 
 @login_required     
 def booking_form(request):
@@ -37,7 +38,7 @@ def booking_form(request):
             booking.booking_customer = customer_data
             booking_id = booking.id
             booking.save()
-            messages.success(request, 'Thank you! Your booking has been saved! You can access it through "My Bookings" page.')
+            messages.success(request, 'Thank you! Your booking has been saved! You can access it through "My Profile" page.')
             return redirect('home')
         else:
             messages.error(request, form.errors)
@@ -47,6 +48,7 @@ def booking_form(request):
                 request, template_name, {'form': form},
                 )
 
+# Booking edit & delete
 
 class EditBooking(UpdateView, LoginRequiredMixin):
 
@@ -64,9 +66,22 @@ class EditBooking(UpdateView, LoginRequiredMixin):
 
 
 @login_required
-def delete_booking(request):
-    pass
-            
+def delete_booking(request, slug):
+
+    booking = get_object_or_404(Booking, slug=slug)
+
+    try:
+        booking.delete()
+        messages.warning(request, 'Your booking has been cancelled')
+
+        return redirect('profile')
+    except Exception as e: 
+        messages.error(request, 'Oops! Something went wrong!')
+        return redirect('home')
+
+
+# Profile section
+
 @login_required
 def user_profile(request):
     
@@ -102,10 +117,10 @@ def edit_profile(request):
         initial_data = {}
         if profile.user:
             form = ProfileForm(initial={
-                    'first_name': profile.first_name,                    
+                    'first_name': profile.first_name,
                     'last_name': profile.last_name,
                     'phone_number': profile.phone_number,
-                    'email': request.user.email,                    
+                    'email': request.user.email,
                 })
 
     return render(request, template_name, {'form': form})
