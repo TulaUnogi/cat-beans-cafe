@@ -113,7 +113,41 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <p class="font-white emphasised">Cats pictures will be here soon!</p>
+                                    
+                                    <div id="catCarouselControls" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner carousel-pics">
+                                          <div class="carousel-item active">
+                                            <img src="{% static 'images/website-images/fluffy-black.jpg' %}" class="d-block img-responsive" alt="Fluffy black cat">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="{% static 'images/website-images/calico-cat.jpg' %}" class="d-block img-responsive" alt="Calico cat">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="{% static 'images/website-images/orange-tabby.jpg' %}" class="d-block img-responsive" alt="Orange tabby cat">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="{% static 'images/website-images/cat-mouse.jpg' %}" class="d-block img-responsive" alt="Cat with a mouse toy">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="{% static 'images/website-images/cosy-cats.jpg' %}" class="d-block img-responsive" alt="Two cosy tabby cats">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="{% static 'images/website-images/little-kitten.jpg' %}" class="d-block img-responsive" alt="Little kitten">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="{% static 'images/website-images/christmas-cat.jpg' %}" class="d-block img-responsive" alt="Christmas kitten">
+                                          </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#catCarouselControls" data-bs-slide="prev">
+                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#catCarouselControls" data-bs-slide="next">
+                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Next</span>
+                                        </button>
+                                      </div>
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary btn-brown" data-bs-dismiss="modal">Close</button>
