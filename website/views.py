@@ -1,10 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.views import generic, View
+from django.views.generic.edit import UpdateView
 from .models import Booking, UserProfile
 from website.forms import BookingForm, ProfileForm
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def home(request, template_name="index.html"):
@@ -45,36 +48,19 @@ def booking_form(request):
                 )
 
 
-@login_required
-def edit_booking(request):       
-    
-    template_name = 'edit-profile.html'
-    my_bookings = Booking.objects.filter(booking_customer=request.user.userprofile)
-    customer_data = UserProfile.objects.all()
-    booking = get_object_or_404(my_bookings)
+class EditBooking(UpdateView, LoginRequiredMixin):
 
-    if request.user.is_authenticated:
-        booking = get_object_or_404(Booking, id=booking_id)
-        if request.method == 'POST':
-            form = BookingForm(request.POST, instance=booking)
-            
-            if form.is_valid():
-                instance = form.save(commit=False)
-                instance.customer_data = customer_data
-                instance.save()
-                messages.success(request, 'Thank you! Your profile has been updated!')
-            else:
-                return messages.error(request, form.errors)
+    model = Booking
+    form_class = BookingForm   
+    template_name = 'edit-booking.html'
+    success_url = reverse_lazy('profile')
 
-    else:
-        initial_data = {}
-        form = BookingForm(initial={
-                'booking_date': booking.booking_date,
-                'booking_time': booking.booking_time,
-                'table_size': booking.table_size,
-                'additional_info': booking.additional_info,                    
-            })
-    return render(request, template_name, {'form': form})
+    def form_valid(self, form):
+        form.instance.booking_customer = UserProfile.objects.get(
+            user=self.request.user
+        )
+        messages.success(self.request, 'Thank you! Your booking has been updated!')
+        return super().form_valid(form)
 
 
 @login_required
