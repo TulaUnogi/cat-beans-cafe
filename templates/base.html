@@ -85,11 +85,11 @@
 
         {% for message in messages %}
             <div class="container-fluid p-0">
-                <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+                <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert" id="msg">
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                         <span aria-hidden="True"></span>
                     </button>
-                    {{ message }}
+                    {{ message | safe }}
                 </div>
             </div>
         {% endfor %}
@@ -157,5 +157,7 @@
     </script>
     <!-- Linking Fontawesome icons -->
     <script src="https://kit.fontawesome.com/f5fb20c689.js" crossorigin="anonymous"></script>
+    <!-- Linking local js file-->
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
