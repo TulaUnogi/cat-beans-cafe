@@ -139,4 +139,3 @@ def delete_account(request):
     except Exception as e: 
         messages.error(request, 'Oops! Something went wrong!')
         return redirect('home')
-    

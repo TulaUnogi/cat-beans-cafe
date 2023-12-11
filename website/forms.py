@@ -22,7 +22,7 @@ class BookingForm(ModelForm):
         # Crispy form helpers
         self.helper = FormHelper()
         self.helper.form_method = 'post'        
-        self.helper.add_input(Submit('submit', 'Submit', css_class='btn btn-secondary btn-brown mb-4 mx-auto px-5'))        
+        self.helper.add_input(Submit('submit', 'Submit', css_class='btn btn-secondary btn-brown mb-4 mx-auto px-5'))
 
     # Provides a date widget to the form 
     booking_date = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date', 'value': datetime.date.today}), required=False)
@@ -44,7 +44,7 @@ class BookingForm(ModelForm):
     def save_booking(self, *args, **kwargs):
 
         data = self.cleaned_data
-        if data.get('booking_date') < datetime.date.today():        
+        if data.get('booking_date') < datetime.date.today():
             raise ValidationError("The date cannot be in the past!")
         else:
             super(Booking, self).save(*args, **kwargs)
